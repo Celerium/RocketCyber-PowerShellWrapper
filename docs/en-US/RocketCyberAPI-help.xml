@@ -1,0 +1,3308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml" xmlns="http://msh">
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberAccount</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberAccount</command:noun>
+      <maml:description>
+        <maml:para>Gets account information for a given ID.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberAccount cmdlet gets account information all accounts or for a given ID from the RocketCyber API.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberAccount</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account ID to pull data for.</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>details</maml:name>
+          <maml:description>
+            <maml:para>Should additional details for each sub-accounts be displayed in the return data.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account ID to pull data for.</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>details</maml:name>
+        <maml:description>
+          <maml:para>Should additional details for each sub-accounts be displayed in the return data.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAccount</dev:code>
+        <dev:remarks>
+          <maml:para>Account data will be retrieved from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAccount -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Account data will be retrieved for the account with the accountId 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>12345 | Get-RocketCyberAccount</dev:code>
+        <dev:remarks>
+          <maml:para>Account data will be retrieved for the account with the accountId 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberAgents</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberAgents</command:noun>
+      <maml:description>
+        <maml:para>Gets RocketCyber agents from an account.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberAgents cmdlet gets agent information for all accounts or for agents associated to an account ID.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberAgents</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account id associated to the device</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>id</maml:name>
+          <maml:description>
+            <maml:para>The agent id</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>hostname</maml:name>
+          <maml:description>
+            <maml:para>The device hostname</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ip</maml:name>
+          <maml:description>
+            <maml:para>The IP address tied to the device</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>created</maml:name>
+          <maml:description>
+            <maml:para>The date range for when agents were created</maml:para>
+            <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+            <maml:para>Cannot be used with the startDate &amp; endDate parameters</maml:para>
+            <maml:para>Start UTC Time  |  End UTC Time</maml:para>
+            <maml:para>Example:     2022-05-09T00:33:38.245Z|2022-05-10T23:59:38.245Z     2022-05-09T00:33:38.245Z|                             |2022-05-10T23:59:38.245Z</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>os</maml:name>
+          <maml:description>
+            <maml:para>The OS used by the device</maml:para>
+            <maml:para>As of 2023-03 using * do not appear to work correctly</maml:para>
+            <maml:para>Example:     Windows*     Windows</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:description>
+            <maml:para>The agent version.</maml:para>
+            <maml:para>As of 2023-03 this filter appears not to work correctly</maml:para>
+            <maml:para>Example:     Server 2019</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>connectivity</maml:name>
+          <maml:description>
+            <maml:para>The connectivity status of the agent</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+            <maml:para>Allowed values:     'online', 'offline', 'isolated'</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>page</maml:name>
+          <maml:description>
+            <maml:para>The target page of data.</maml:para>
+            <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+            <maml:para>[Default] 1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>pageSize</maml:name>
+          <maml:description>
+            <maml:para>The number of items to return from the data set.</maml:para>
+            <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1000</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>sort</maml:name>
+          <maml:description>
+            <maml:para>The sort order for the items queried.</maml:para>
+            <maml:para>Not all values can be sorted</maml:para>
+            <maml:para>Example:     hostname:asc     accountId:desc</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>allPages</maml:name>
+          <maml:description>
+            <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberAgents</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account id associated to the device</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>id</maml:name>
+          <maml:description>
+            <maml:para>The agent id</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>hostname</maml:name>
+          <maml:description>
+            <maml:para>The device hostname</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>ip</maml:name>
+          <maml:description>
+            <maml:para>The IP address tied to the device</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>startDate</maml:name>
+          <maml:description>
+            <maml:para>The friendly start date for when agents were created</maml:para>
+            <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+            <maml:para>Cannot be used with the created parameter</maml:para>
+            <maml:para>Date needs to be inputted as yyyy-mm-dd hh:mm:ss</maml:para>
+            <maml:para>Example:     2022-05-09 12:30:10</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+          <dev:type>
+            <maml:name>DateTime</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>endDate</maml:name>
+          <maml:description>
+            <maml:para>The friendly end date for when agents were created</maml:para>
+            <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+            <maml:para>Cannot be used with the created parameter</maml:para>
+            <maml:para>Date needs to be inputted as yyyy-mm-dd hh:mm:ss</maml:para>
+            <maml:para>Example:     2022-05-09 12:30:10</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+          <dev:type>
+            <maml:name>DateTime</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>os</maml:name>
+          <maml:description>
+            <maml:para>The OS used by the device</maml:para>
+            <maml:para>As of 2023-03 using * do not appear to work correctly</maml:para>
+            <maml:para>Example:     Windows*     Windows</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>version</maml:name>
+          <maml:description>
+            <maml:para>The agent version.</maml:para>
+            <maml:para>As of 2023-03 this filter appears not to work correctly</maml:para>
+            <maml:para>Example:     Server 2019</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>connectivity</maml:name>
+          <maml:description>
+            <maml:para>The connectivity status of the agent</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+            <maml:para>Allowed values:     'online', 'offline', 'isolated'</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>page</maml:name>
+          <maml:description>
+            <maml:para>The target page of data.</maml:para>
+            <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+            <maml:para>[Default] 1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>pageSize</maml:name>
+          <maml:description>
+            <maml:para>The number of items to return from the data set.</maml:para>
+            <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1000</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>sort</maml:name>
+          <maml:description>
+            <maml:para>The sort order for the items queried.</maml:para>
+            <maml:para>Not all values can be sorted</maml:para>
+            <maml:para>Example:     hostname:asc     accountId:desc</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>allPages</maml:name>
+          <maml:description>
+            <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account id associated to the device</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>id</maml:name>
+        <maml:description>
+          <maml:para>The agent id</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>hostname</maml:name>
+        <maml:description>
+          <maml:para>The device hostname</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>ip</maml:name>
+        <maml:description>
+          <maml:para>The IP address tied to the device</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>created</maml:name>
+        <maml:description>
+          <maml:para>The date range for when agents were created</maml:para>
+          <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+          <maml:para>Cannot be used with the startDate &amp; endDate parameters</maml:para>
+          <maml:para>Start UTC Time  |  End UTC Time</maml:para>
+          <maml:para>Example:     2022-05-09T00:33:38.245Z|2022-05-10T23:59:38.245Z     2022-05-09T00:33:38.245Z|                             |2022-05-10T23:59:38.245Z</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>startDate</maml:name>
+        <maml:description>
+          <maml:para>The friendly start date for when agents were created</maml:para>
+          <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+          <maml:para>Cannot be used with the created parameter</maml:para>
+          <maml:para>Date needs to be inputted as yyyy-mm-dd hh:mm:ss</maml:para>
+          <maml:para>Example:     2022-05-09 12:30:10</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+        <dev:type>
+          <maml:name>DateTime</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>endDate</maml:name>
+        <maml:description>
+          <maml:para>The friendly end date for when agents were created</maml:para>
+          <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+          <maml:para>Cannot be used with the created parameter</maml:para>
+          <maml:para>Date needs to be inputted as yyyy-mm-dd hh:mm:ss</maml:para>
+          <maml:para>Example:     2022-05-09 12:30:10</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">DateTime</command:parameterValue>
+        <dev:type>
+          <maml:name>DateTime</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>os</maml:name>
+        <maml:description>
+          <maml:para>The OS used by the device</maml:para>
+          <maml:para>As of 2023-03 using * do not appear to work correctly</maml:para>
+          <maml:para>Example:     Windows*     Windows</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>version</maml:name>
+        <maml:description>
+          <maml:para>The agent version.</maml:para>
+          <maml:para>As of 2023-03 this filter appears not to work correctly</maml:para>
+          <maml:para>Example:     Server 2019</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>connectivity</maml:name>
+        <maml:description>
+          <maml:para>The connectivity status of the agent</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+          <maml:para>Allowed values:     'online', 'offline', 'isolated'</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>page</maml:name>
+        <maml:description>
+          <maml:para>The target page of data.</maml:para>
+          <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+          <maml:para>[Default] 1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>pageSize</maml:name>
+        <maml:description>
+          <maml:para>The number of items to return from the data set.</maml:para>
+          <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1000</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>sort</maml:name>
+        <maml:description>
+          <maml:para>The sort order for the items queried.</maml:para>
+          <maml:para>Not all values can be sorted</maml:para>
+          <maml:para>Example:     hostname:asc     accountId:desc</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>allPages</maml:name>
+        <maml:description>
+          <maml:para>Returns all items from an endpoint</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents -id 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from account 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents -id 12345 -sort hostname:asc</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from account 12345.</maml:para>
+          <maml:para>Data is sorted by hostname and returned in ascending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents -id 12345 -connectivity offline,isolated</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 offline agents from account 12345 that are either offline or isolated.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Agents/Get-RocketCyberAgents.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Agents/Get-RocketCyberAgents.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberApps</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberApps</command:noun>
+      <maml:description>
+        <maml:para>Gets an accounts apps from the RocketCyber API.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberApps cmdlet gets an accounts apps from the RocketCyber API.</maml:para>
+      <maml:para>Can be used with the Get-RocketCyberEvents cmdlet</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberApps</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account ID to pull data for.</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>status</maml:name>
+          <maml:description>
+            <maml:para>The type of apps to request</maml:para>
+            <maml:para>Acceptable values are:     'active', 'inactive'</maml:para>
+            <maml:para>The default value is 'active'</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account ID to pull data for.</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>status</maml:name>
+        <maml:description>
+          <maml:para>The type of apps to request</maml:para>
+          <maml:para>Acceptable values are:     'active', 'inactive'</maml:para>
+          <maml:para>The default value is 'active'</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps</dev:code>
+        <dev:remarks>
+          <maml:para>Gets active apps from accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Gets active apps from account 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps -accountId 12345 -status inactive</dev:code>
+        <dev:remarks>
+          <maml:para>Gets inactive apps from account 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Apps/Get-RocketCyberApps.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Apps/Get-RocketCyberApps.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberDefender</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberDefender</command:noun>
+      <maml:description>
+        <maml:para>Gets defender information from the RocketCyber API.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberApps cmdlet gets an accounts defender information from the RocketCyber API.</maml:para>
+      <maml:para>This includes various health &amp; risk values</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberDefender</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account ID to pull data for.</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account ID to pull data for.</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps</dev:code>
+        <dev:remarks>
+          <maml:para>Gets defender information all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Gets defender information from account 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Defender/Get-RocketCyberDefender.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Defender/Get-RocketCyberDefender.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberEvents</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberEvents</command:noun>
+      <maml:description>
+        <maml:para>Gets app event information from the RocketCyber API.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberEvents cmdlet gets app event information for events associated to all or a defined account ID.</maml:para>
+      <maml:para>Use the Get-RockerCyberApp cmdlet to get app ids</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberEvents</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>appId</maml:name>
+          <maml:description>
+            <maml:para>The app ID.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>verdict</maml:name>
+          <maml:description>
+            <maml:para>The verdict of the event.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+            <maml:para>Allowed Values: 'informational', 'suspicious', 'malicious'</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account id associated to the device</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>details</maml:name>
+          <maml:description>
+            <maml:para>This parameter allows users to target specific attributes within the details object.</maml:para>
+            <maml:para>This requires you to define the attribute path (period separated) and the expected value.</maml:para>
+            <maml:para>The value can include wildcards (*)</maml:para>
+            <maml:para>Example: (appId 7)     attributes.direction:outbound</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>dates</maml:name>
+          <maml:description>
+            <maml:para>The date range for event detections.</maml:para>
+            <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+            <maml:para>Cannot be used with the startDate &amp; endDate parameters</maml:para>
+            <maml:para>Start Time  |  End Time</maml:para>
+            <maml:para>Example:     2022-05-09  |2022-05-10     2022-05-09  |                 |2022-05-10</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>page</maml:name>
+          <maml:description>
+            <maml:para>The target page of data.</maml:para>
+            <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+            <maml:para>[Default] 1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>pageSize</maml:name>
+          <maml:description>
+            <maml:para>The number of items to return from the data set.</maml:para>
+            <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1000</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>sort</maml:name>
+          <maml:description>
+            <maml:para>The sort order for the items queried.</maml:para>
+            <maml:para>Not all values can be sorted</maml:para>
+            <maml:para>Example:     verdict:asc     dates:desc</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>allPages</maml:name>
+          <maml:description>
+            <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>appId</maml:name>
+        <maml:description>
+          <maml:para>The app ID.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>verdict</maml:name>
+        <maml:description>
+          <maml:para>The verdict of the event.</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+          <maml:para>Allowed Values: 'informational', 'suspicious', 'malicious'</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account id associated to the device</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>details</maml:name>
+        <maml:description>
+          <maml:para>This parameter allows users to target specific attributes within the details object.</maml:para>
+          <maml:para>This requires you to define the attribute path (period separated) and the expected value.</maml:para>
+          <maml:para>The value can include wildcards (*)</maml:para>
+          <maml:para>Example: (appId 7)     attributes.direction:outbound</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>dates</maml:name>
+        <maml:description>
+          <maml:para>The date range for event detections.</maml:para>
+          <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+          <maml:para>Cannot be used with the startDate &amp; endDate parameters</maml:para>
+          <maml:para>Start Time  |  End Time</maml:para>
+          <maml:para>Example:     2022-05-09  |2022-05-10     2022-05-09  |                 |2022-05-10</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>page</maml:name>
+        <maml:description>
+          <maml:para>The target page of data.</maml:para>
+          <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+          <maml:para>[Default] 1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>pageSize</maml:name>
+        <maml:description>
+          <maml:para>The number of items to return from the data set.</maml:para>
+          <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1000</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>sort</maml:name>
+        <maml:description>
+          <maml:para>The sort order for the items queried.</maml:para>
+          <maml:para>Not all values can be sorted</maml:para>
+          <maml:para>Example:     verdict:asc     dates:desc</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>allPages</maml:name>
+        <maml:description>
+          <maml:para>Returns all items from an endpoint</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>As of 2023-03     Other than the parameters shown here, app specific parameters vary from app to app,     however I have not found any documentation around this.</maml:para>
+        <maml:para>    https://api-doc.rocketcyber.com/#a6f5b2f8-a968-4132-bd7d-1fdc12c7152e</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -appId 7</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -accountId 12345 -appId 7</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events from account 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -appId 7 -sort dates:desc</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events and the data set is sort by dates in descending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -appId 7 -verdict suspicious</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events and the data set is sort by dates in descending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Events/Get-RocketCyberEvents.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Events/Get-RocketCyberEvents.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberFirewalls</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberFirewalls</command:noun>
+      <maml:description>
+        <maml:para>Gets RocketCyber firewalls from an account.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberFirewalls cmdlet gets firewalls from an account.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberFirewalls</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account id associated to the device</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>deviceId</maml:name>
+          <maml:description>
+            <maml:para>The device ID tied to the device.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+          <maml:name>ipAddress</maml:name>
+          <maml:description>
+            <maml:para>The IP address tied to the device.</maml:para>
+            <maml:para>As of 2023-03 this endpoint does not return IP address information</maml:para>
+            <maml:para>Example:     172.25.5.254</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+          <maml:name>macAddress</maml:name>
+          <maml:description>
+            <maml:para>The MAC address tied to the device.</maml:para>
+            <maml:para>Example:     ae:b1:69:29:55:24</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+          <maml:name>type</maml:name>
+          <maml:description>
+            <maml:para>The type of device.</maml:para>
+            <maml:para>Example:     SonicWall,Fortinet</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+          <maml:name>page</maml:name>
+          <maml:description>
+            <maml:para>The target page of data.</maml:para>
+            <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+            <maml:para>[Default] 1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
+          <maml:name>pageSize</maml:name>
+          <maml:description>
+            <maml:para>The number of items to return from the data set.</maml:para>
+            <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1000</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
+          <maml:name>sort</maml:name>
+          <maml:description>
+            <maml:para>The sort order for the items queried.</maml:para>
+            <maml:para>Not all values can be sorted</maml:para>
+            <maml:para>Example:     accountId:asc     accountId:desc</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>allPages</maml:name>
+          <maml:description>
+            <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account id associated to the device</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>deviceId</maml:name>
+        <maml:description>
+          <maml:para>The device ID tied to the device.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>ipAddress</maml:name>
+        <maml:description>
+          <maml:para>The IP address tied to the device.</maml:para>
+          <maml:para>As of 2023-03 this endpoint does not return IP address information</maml:para>
+          <maml:para>Example:     172.25.5.254</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>macAddress</maml:name>
+        <maml:description>
+          <maml:para>The MAC address tied to the device.</maml:para>
+          <maml:para>Example:     ae:b1:69:29:55:24</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+        <maml:name>type</maml:name>
+        <maml:description>
+          <maml:para>The type of device.</maml:para>
+          <maml:para>Example:     SonicWall,Fortinet</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+        <maml:name>page</maml:name>
+        <maml:description>
+          <maml:para>The target page of data.</maml:para>
+          <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+          <maml:para>[Default] 1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
+        <maml:name>pageSize</maml:name>
+        <maml:description>
+          <maml:para>The number of items to return from the data set.</maml:para>
+          <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1000</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
+        <maml:name>sort</maml:name>
+        <maml:description>
+          <maml:para>The sort order for the items queried.</maml:para>
+          <maml:para>Not all values can be sorted</maml:para>
+          <maml:para>Example:     accountId:asc     accountId:desc</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>allPages</maml:name>
+        <maml:description>
+          <maml:para>Returns all items from an endpoint</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>The first 1000 firewalls are pulled from accountId 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls -macAddress '11:22:33:aa:bb:cc'</dev:code>
+        <dev:remarks>
+          <maml:para>Get the firewall with the defined macAddress</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls -type SonicWall,Fortinet</dev:code>
+        <dev:remarks>
+          <maml:para>Get firewalls with the defined type</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Firewalls/Get-RocketCyberFirewalls.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Firewalls/Get-RocketCyberFirewalls.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberIncidents</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberIncidents</command:noun>
+      <maml:description>
+        <maml:para>Gets incident information from the RocketCyber API</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberIncidents cmdlet gets incident information associated to all or a defined account ID.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberIncidents</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>id</maml:name>
+          <maml:description>
+            <maml:para>The RocketCyber incident ID.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="10" aliases="none">
+          <maml:name>pageSize</maml:name>
+          <maml:description>
+            <maml:para>The number of items to return from the data set.</maml:para>
+            <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1000</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="11" aliases="none">
+          <maml:name>sort</maml:name>
+          <maml:description>
+            <maml:para>The sort order for the items queried.</maml:para>
+            <maml:para>Not all values can be sorted</maml:para>
+            <maml:para>Example:     accountId:asc     title:desc</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>title</maml:name>
+          <maml:description>
+            <maml:para>The title of the incident.</maml:para>
+            <maml:para>Example:     Office*</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account id associated to the device</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+          <maml:name>description</maml:name>
+          <maml:description>
+            <maml:para>The description of the incident.</maml:para>
+            <maml:para>NOTE: Wildcards are required to search for specific text.</maml:para>
+            <maml:para>Example:     administrative</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+          <maml:name>remediation</maml:name>
+          <maml:description>
+            <maml:para>The remediation for the incident.</maml:para>
+            <maml:para>NOTE: Wildcards are required to search for specific text.</maml:para>
+            <maml:para>Example:     permission*</maml:para>
+            <maml:para>As of 2023-03 this parameters does not appear to work</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+          <maml:name>resolvedAt</maml:name>
+          <maml:description>
+            <maml:para>This returns incidents resolved between the start and end date.</maml:para>
+            <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+            <maml:para>Start Time  |  End Time</maml:para>
+            <maml:para>Example:     2022-05-09  |2022-05-10     2022-05-09  |                 |2022-05-10</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
+          <maml:name>createdAt</maml:name>
+          <maml:description>
+            <maml:para>This returns incidents created between the start and end date.</maml:para>
+            <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+            <maml:para>Start Time  |  End Time</maml:para>
+            <maml:para>Example:     2022-05-09  |2022-05-10     2022-05-09  |                 |2022-05-10</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
+          <maml:name>status</maml:name>
+          <maml:description>
+            <maml:para>The type of incidents to request.</maml:para>
+            <maml:para>Allowed Values:     'open', 'resolved'</maml:para>
+            <maml:para>As of 2023-03 the documentation defines the allowed values listed below but not all work</maml:para>
+            <maml:para>'all', 'open', 'closed'</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+          <dev:type>
+            <maml:name>String[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="9" aliases="none">
+          <maml:name>page</maml:name>
+          <maml:description>
+            <maml:para>The target page of data.</maml:para>
+            <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+            <maml:para>[Default] 1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>1</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>allPages</maml:name>
+          <maml:description>
+            <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>id</maml:name>
+        <maml:description>
+          <maml:para>The RocketCyber incident ID.</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>title</maml:name>
+        <maml:description>
+          <maml:para>The title of the incident.</maml:para>
+          <maml:para>Example:     Office*</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account id associated to the device</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          <maml:para>Multiple comma separated values can be inputted</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>description</maml:name>
+        <maml:description>
+          <maml:para>The description of the incident.</maml:para>
+          <maml:para>NOTE: Wildcards are required to search for specific text.</maml:para>
+          <maml:para>Example:     administrative</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="5" aliases="none">
+        <maml:name>remediation</maml:name>
+        <maml:description>
+          <maml:para>The remediation for the incident.</maml:para>
+          <maml:para>NOTE: Wildcards are required to search for specific text.</maml:para>
+          <maml:para>Example:     permission*</maml:para>
+          <maml:para>As of 2023-03 this parameters does not appear to work</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
+        <maml:name>resolvedAt</maml:name>
+        <maml:description>
+          <maml:para>This returns incidents resolved between the start and end date.</maml:para>
+          <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+          <maml:para>Start Time  |  End Time</maml:para>
+          <maml:para>Example:     2022-05-09  |2022-05-10     2022-05-09  |                 |2022-05-10</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
+        <maml:name>createdAt</maml:name>
+        <maml:description>
+          <maml:para>This returns incidents created between the start and end date.</maml:para>
+          <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
+          <maml:para>Start Time  |  End Time</maml:para>
+          <maml:para>Example:     2022-05-09  |2022-05-10     2022-05-09  |                 |2022-05-10</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
+        <maml:name>status</maml:name>
+        <maml:description>
+          <maml:para>The type of incidents to request.</maml:para>
+          <maml:para>Allowed Values:     'open', 'resolved'</maml:para>
+          <maml:para>As of 2023-03 the documentation defines the allowed values listed below but not all work</maml:para>
+          <maml:para>'all', 'open', 'closed'</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String[]</command:parameterValue>
+        <dev:type>
+          <maml:name>String[]</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="9" aliases="none">
+        <maml:name>page</maml:name>
+        <maml:description>
+          <maml:para>The target page of data.</maml:para>
+          <maml:para>This is used with pageSize parameter to determine how many and which items to return.</maml:para>
+          <maml:para>[Default] 1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="10" aliases="none">
+        <maml:name>pageSize</maml:name>
+        <maml:description>
+          <maml:para>The number of items to return from the data set.</maml:para>
+          <maml:para>[Default] 1000 [Maximum] 1000</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>1000</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="11" aliases="none">
+        <maml:name>sort</maml:name>
+        <maml:description>
+          <maml:para>The sort order for the items queried.</maml:para>
+          <maml:para>Not all values can be sorted</maml:para>
+          <maml:para>Example:     accountId:asc     title:desc</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>allPages</maml:name>
+        <maml:description>
+          <maml:para>Returns all items from an endpoint</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>As of 2023-03:     Any parameters that say wildcards are required is not valid</maml:para>
+        <maml:para>    Using wildcards in the query string do not work as the endpoint     already search's via wildcard. If you use a wildcard '*' it     will not return any results.</maml:para>
+        <maml:para>The remediation parameter does not appear to work</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 incidents from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -accountId 12345 -Id 9876</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the defined incident Id from the defined accountId</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -title nmap -resolvedAt '2023-01-01|'</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 incidents from all accounts accessible by the bearer token that were resolved after the defined startDate with the defined word in the title.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -description audit -createdAt '|2023-03-01'</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 incidents from all accounts accessible by the bearer token that were created before the defined endDate with the defined word in the description.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 5 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -status resolved -sort title:asc</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 resolved incidents from all accounts accessible by the bearer token and the data is return by title in ascending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Incidents/Get-RocketCyberIncidents.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Incidents/Get-RocketCyberIncidents.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Add-RocketCyberAPIKey</command:name>
+      <command:verb>Add</command:verb>
+      <command:noun>RocketCyberAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Sets your API bearer token used to authenticate all API calls.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberAPIKey cmdlet sets your API bearer token which is used to authenticate all API calls made to RocketCyber. Once the API bearer token is defined, it is encrypted using SecureString.</maml:para>
+      <maml:para>The RocketCyber API bearer tokens are generated via the RocketCyber web interface at Provider Settings &gt; RocketCyber API</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Add-RocketCyberAPIKey</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="ApiKey">
+          <maml:name>Api_Key</maml:name>
+          <maml:description>
+            <maml:para>Define your API bearer token that was generated from RocketCyber.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="ApiKey">
+        <maml:name>Api_Key</maml:name>
+        <maml:description>
+          <maml:para>Define your API bearer token that was generated from RocketCyber.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Prompts to enter in the API bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey -Api_key 'your_api_key'</dev:code>
+        <dev:remarks>
+          <maml:para>The RocketCyber API will use the string entered into the [ -Api_Key ] parameter.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>'12345' | Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>The Add-RocketCyberAPIKey function will use the string passed into it as its API bearer token.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Add-RocketCyberBaseURI</command:name>
+      <command:verb>Add</command:verb>
+      <command:noun>RocketCyberBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Sets the base URI for the RocketCyber API connection.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberBaseURI cmdlet sets the base URI which is later used to construct the full URI for all API calls.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Add-RocketCyberBaseURI</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+          <maml:name>base_uri</maml:name>
+          <maml:description>
+            <maml:para>Define the base URI for the RocketCyber API connection using RocketCyber's URI or a custom URI.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Https://api-us.rocketcyber.com/v3</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>data_center</maml:name>
+          <maml:description>
+            <maml:para>RocketCyber's URI connection point that can be one of the predefined data centers.</maml:para>
+            <maml:para>The accepted values for this parameter are: [ US, EU ] US = https://api-us.rocketcyber.com/v3 EU = https://api-eu.rocketcyber.com/v3</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <maml:name>base_uri</maml:name>
+        <maml:description>
+          <maml:para>Define the base URI for the RocketCyber API connection using RocketCyber's URI or a custom URI.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Https://api-us.rocketcyber.com/v3</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>data_center</maml:name>
+        <maml:description>
+          <maml:para>RocketCyber's URI connection point that can be one of the predefined data centers.</maml:para>
+          <maml:para>The accepted values for this parameter are: [ US, EU ] US = https://api-us.rocketcyber.com/v3 EU = https://api-eu.rocketcyber.com/v3</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-us.rocketcyber.com/v3 which is RocketCyber's default URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -data_center EU</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-eu.rocketcyber.com/v3 which is RocketCyber's Europe URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -base_uri http://myapi.gateway.example.com</dev:code>
+        <dev:remarks>
+          <maml:para>A custom API gateway of http://myapi.gateway.example.com will be used for all API calls to RocketCyber's API.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>ConvertTo-QueryString</command:name>
+      <command:verb>ConvertTo</command:verb>
+      <command:noun>QueryString</command:noun>
+      <maml:description>
+        <maml:para>Converts uri filter parameters</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-ApiRequest cmdlet converts &amp; formats uri filter parameters from a function which are later used to make the full resource uri for an API call</maml:para>
+      <maml:para>This is an internal helper function the ties in directly with the Invoke-ApiRequest &amp; any public functions that define parameters</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>ConvertTo-QueryString</maml:name>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+          <maml:name>uri_Filter</maml:name>
+          <maml:description>
+            <maml:para>Hashtable of values to combine a functions parameters with the resource_Uri parameter.</maml:para>
+            <maml:para>This allows for the full uri query to occur</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>resource_Uri</maml:name>
+          <maml:description>
+            <maml:para>Defines the short resource uri (url) to use when creating the API call</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
+        <maml:name>uri_Filter</maml:name>
+        <maml:description>
+          <maml:para>Hashtable of values to combine a functions parameters with the resource_Uri parameter.</maml:para>
+          <maml:para>This allows for the full uri query to occur</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+        <dev:type>
+          <maml:name>Hashtable</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>resource_Uri</maml:name>
+        <maml:description>
+          <maml:para>Defines the short resource uri (url) to use when creating the API call</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>ConvertTo-QueryString -uri_Filter $uri_Filter -resource_Uri '/account'</dev:code>
+        <dev:remarks>
+          <maml:para>Example: (From public function)     $uri_Filter = @{}</maml:para>
+          <maml:para>    ForEach ( $Key in $PSBoundParameters.GetEnumerator() ){         if( $excludedParameters -contains $Key.Key ){$null}         else{ $uri_Filter += @{ $Key.Key = $Key.Value } }     }</maml:para>
+          <maml:para>    1x key = https://api-us.rocketcyber.com/v3/account?accountId=12345     2x key = https://api-us.rocketcyber.com/v3/account?accountId=12345&amp;details=True</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-QueryString.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-QueryString.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Export-RocketCyberModuleSettings</command:name>
+      <command:verb>Export</command:verb>
+      <command:noun>RocketCyberModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Exports the RocketCyber BaseURI, API, &amp; JSON configuration information to file.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Export-RocketCyberModuleSettings cmdlet exports the RocketCyber BaseURI, API, &amp; JSON configuration information to file.</maml:para>
+      <maml:para>Making use of PowerShell's System.Security.SecureString type, exporting module settings encrypts your API key in a format that can only be unencrypted with the your Windows account as this encryption is tied to your user principal. This means that you cannot copy your configuration file to another computer or user account and expect it to work.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Export-RocketCyberModuleSettings</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfPath</maml:name>
+          <maml:description>
+            <maml:para>Define the location to store the RocketCyber configuration file.</maml:para>
+            <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfFile</maml:name>
+          <maml:description>
+            <maml:para>Define the name of the RocketCyber configuration file.</maml:para>
+            <maml:para>By default the configuration file is named:     config.psd1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Config.psd1</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfPath</maml:name>
+        <maml:description>
+          <maml:para>Define the location to store the RocketCyber configuration file.</maml:para>
+          <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfFile</maml:name>
+        <maml:description>
+          <maml:para>Define the name of the RocketCyber configuration file.</maml:para>
+          <maml:para>By default the configuration file is named:     config.psd1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Config.psd1</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Export-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Validates that the BaseURI, API, and JSON depth are set then exports their values to the current user's RocketCyber configuration file located at:     $env:USERPROFILE\RocketCyberAPI\config.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Export-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -RocketCyberConfFile MyConfig.psd1</dev:code>
+        <dev:remarks>
+          <maml:para>Validates that the BaseURI, API, and JSON depth are set then exports their values to the current user's RocketCyber configuration file located at:     C:\RocketCyberAPI\MyConfig.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Export-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Export-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberAPIKey</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Gets the RocketCyber API bearer token global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberAPIKey cmdlet gets the RocketCyber API bearer token global variable and returns it as a SecureString.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberAPIKey</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>PlainText</maml:name>
+          <maml:description>
+            <maml:para>Decrypt and return the API key in plain text.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>PlainText</maml:name>
+        <maml:description>
+          <maml:para>Decrypt and return the API key in plain text.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the RocketCyber API bearer token global variable and returns it as a SecureString.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAPIKey -PlainText</dev:code>
+        <dev:remarks>
+          <maml:para>Gets and decrypts the API key from the global variable and returns the API key in plain text</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberBaseURI</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Shows the RocketCyber base URI global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberBaseURI cmdlet shows the RocketCyber base URI global variable value.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberBaseURI</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>Shows the RocketCyber base URI global variable value.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberModuleSettings</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Gets the saved RocketCyber configuration settings</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberModuleSettings cmdlet gets the saved RocketCyber configuration settings</maml:para>
+      <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberModuleSettings</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfPath</maml:name>
+          <maml:description>
+            <maml:para>Define the location to store the RocketCyber configuration file.</maml:para>
+            <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfFile</maml:name>
+          <maml:description>
+            <maml:para>Define the name of the RocketCyber configuration file.</maml:para>
+            <maml:para>By default the configuration file is named:     config.psd1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Config.psd1</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberModuleSettings</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>openConfFile</maml:name>
+          <maml:description>
+            <maml:para>Opens the RocketCyber configuration file</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfPath</maml:name>
+        <maml:description>
+          <maml:para>Define the location to store the RocketCyber configuration file.</maml:para>
+          <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfFile</maml:name>
+        <maml:description>
+          <maml:para>Define the name of the RocketCyber configuration file.</maml:para>
+          <maml:para>By default the configuration file is named:     config.psd1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Config.psd1</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>openConfFile</maml:name>
+        <maml:description>
+          <maml:para>Opens the RocketCyber configuration file</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the contents of the configuration file that was created with the Export-RocketCyberModuleSettings</maml:para>
+          <maml:para>The default location of the RocketCyber configuration file is:     $env:USERPROFILE\RocketCyberAPI\config.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -RocketCyberConfFile MyConfig.psd1 -openConfFile</dev:code>
+        <dev:remarks>
+          <maml:para>Opens the configuration file from the defined location in the default editor</maml:para>
+          <maml:para>The location of the RocketCyber configuration file in this example is:     C:\RocketCyberAPI\MyConfig.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Import-RocketCyberModuleSettings</command:name>
+      <command:verb>Import</command:verb>
+      <command:noun>RocketCyberModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Imports the RocketCyber BaseURI, API, &amp; JSON configuration information to the current session.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Import-RocketCyberModuleSettings cmdlet imports the RocketCyber BaseURI, API, &amp; JSON configuration information stored in the RocketCyber configuration file to the users current session.</maml:para>
+      <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Import-RocketCyberModuleSettings</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfPath</maml:name>
+          <maml:description>
+            <maml:para>Define the location to store the RocketCyber configuration file.</maml:para>
+            <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfFile</maml:name>
+          <maml:description>
+            <maml:para>Define the name of the RocketCyber configuration file.</maml:para>
+            <maml:para>By default the configuration file is named:     config.psd1</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>Config.psd1</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfPath</maml:name>
+        <maml:description>
+          <maml:para>Define the location to store the RocketCyber configuration file.</maml:para>
+          <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfFile</maml:name>
+        <maml:description>
+          <maml:para>Define the name of the RocketCyber configuration file.</maml:para>
+          <maml:para>By default the configuration file is named:     config.psd1</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>Config.psd1</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Import-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Validates that the configuration file created with the Export-RocketCyberModuleSettings cmdlet exists then imports the stored data into the current users session.</maml:para>
+          <maml:para>The default location of the RocketCyber configuration file is:     $env:USERPROFILE\RocketCyberAPI\config.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Import-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -RocketCyberConfFile MyConfig.psd1</dev:code>
+        <dev:remarks>
+          <maml:para>Validates that the configuration file created with the Export-RocketCyberModuleSettings cmdlet exists then imports the stored data into the current users session.</maml:para>
+          <maml:para>The location of the RocketCyber configuration file in this example is:     C:\RocketCyberAPI\MyConfig.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Import-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Import-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Invoke-APIRequest</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>APIRequest</command:noun>
+      <maml:description>
+        <maml:para>Makes an API request</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-ApiRequest cmdlet invokes an API request to RocketCyber API.</maml:para>
+      <maml:para>This is an internal function that is used by all public functions</maml:para>
+      <maml:para>As of 2023-03 the RocketCyber v3 API only supports GET requests</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-APIRequest</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>method</maml:name>
+          <maml:description>
+            <maml:para>Defines the type of API method to use</maml:para>
+            <maml:para>Allowed values: 'GET'</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>GET</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+          <maml:name>resource_Uri</maml:name>
+          <maml:description>
+            <maml:para>Defines the resource uri (url) to use when creating the API call</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+          <maml:name>uri_Filter</maml:name>
+          <maml:description>
+            <maml:para>Used with the internal function [ ConvertTo-QueryString ] to combine a functions parameters with the resource_Uri parameter.</maml:para>
+            <maml:para>This allows for the full uri query to occur</maml:para>
+            <maml:para>The full resource path is made with the following data $RocketCyber_Base_URI + $resource_Uri + ConvertTo-QueryString</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+          <maml:name>data</maml:name>
+          <maml:description>
+            <maml:para>Place holder parameter to use when other methods are supported by the RocketCyber v3 API</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+          <dev:type>
+            <maml:name>Hashtable</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>allPages</maml:name>
+          <maml:description>
+            <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>method</maml:name>
+        <maml:description>
+          <maml:para>Defines the type of API method to use</maml:para>
+          <maml:para>Allowed values: 'GET'</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>GET</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="2" aliases="none">
+        <maml:name>resource_Uri</maml:name>
+        <maml:description>
+          <maml:para>Defines the resource uri (url) to use when creating the API call</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
+        <maml:name>uri_Filter</maml:name>
+        <maml:description>
+          <maml:para>Used with the internal function [ ConvertTo-QueryString ] to combine a functions parameters with the resource_Uri parameter.</maml:para>
+          <maml:para>This allows for the full uri query to occur</maml:para>
+          <maml:para>The full resource path is made with the following data $RocketCyber_Base_URI + $resource_Uri + ConvertTo-QueryString</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+        <dev:type>
+          <maml:name>Hashtable</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
+        <maml:name>data</maml:name>
+        <maml:description>
+          <maml:para>Place holder parameter to use when other methods are supported by the RocketCyber v3 API</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
+        <dev:type>
+          <maml:name>Hashtable</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>allPages</maml:name>
+        <maml:description>
+          <maml:para>Returns all items from an endpoint</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Invoke-ApiRequest -method GET -resource_Uri '/account' -uri_Filter $uri_Filter</dev:code>
+        <dev:remarks>
+          <maml:para>Invoke a rest method against the defined resource using any of the provided parameters</maml:para>
+          <maml:para>Example:     Name                           Value     ----                           -----     Method                         GET     Uri                            https://api-us.rocketcyber.com/v3/account?accountId=12345&amp;details=True     Headers                        {Authorization = Bearer 123456789}     Body</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-APIRequest.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-APIRequest.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RocketCyberAPIKey</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RocketCyberAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Removes the RocketCyber API bearer token global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RocketCyberAPIKey cmdlet removes the RocketCyber API bearer token global variable.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RocketCyberAPIKey</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Removes the RocketCyber API bearer token global variable.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RocketCyberBaseURI</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RocketCyberBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Removes the RocketCyber base URI global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RocketCyberBaseURI cmdlet removes the RocketCyber base URI global variable.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RocketCyberBaseURI</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>Removes the RocketCyber base URI global variable.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RocketCyberModuleSettings</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RocketCyberModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Removes the stored RocketCyber configuration folder.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RocketCyberModuleSettings cmdlet removes the RocketCyber folder and its files. This cmdlet also has the option to remove sensitive RocketCyber variables as well.</maml:para>
+      <maml:para>By default configuration files are stored in the following location and will be removed:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RocketCyberModuleSettings</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>RocketCyberConfPath</maml:name>
+          <maml:description>
+            <maml:para>Define the location of the RocketCyber configuration folder.</maml:para>
+            <maml:para>By default the configuration folder is located at:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>AndVariables</maml:name>
+          <maml:description>
+            <maml:para>Define if sensitive RocketCyber variables should be removed as well.</maml:para>
+            <maml:para>By default the variables are not removed.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+          <maml:name>WhatIf</maml:name>
+          <maml:description>
+            <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+          <maml:name>Confirm</maml:name>
+          <maml:description>
+            <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>RocketCyberConfPath</maml:name>
+        <maml:description>
+          <maml:para>Define the location of the RocketCyber configuration folder.</maml:para>
+          <maml:para>By default the configuration folder is located at:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>AndVariables</maml:name>
+        <maml:description>
+          <maml:para>Define if sensitive RocketCyber variables should be removed as well.</maml:para>
+          <maml:para>By default the variables are not removed.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="wi">
+        <maml:name>WhatIf</maml:name>
+        <maml:description>
+          <maml:para>Shows what would happen if the cmdlet runs. The cmdlet is not run.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="cf">
+        <maml:name>Confirm</maml:name>
+        <maml:description>
+          <maml:para>Prompts you for confirmation before running the cmdlet.</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Checks to see if the default configuration folder exists and removes it if it does.</maml:para>
+          <maml:para>The default location of the RocketCyber configuration folder is:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -AndVariables</dev:code>
+        <dev:remarks>
+          <maml:para>Checks to see if the defined configuration folder exists and removes it if it does. If sensitive RocketCyber variables exist then they are removed as well.</maml:para>
+          <maml:para>The location of the RocketCyber configuration folder in this example is:     C:\RocketCyberAPI</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-RocketCyberAPIKey</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>RocketCyberAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Test the RocketCyber API bearer token.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Test-RocketCyberAPIKey cmdlet tests the base URI &amp; API bearer token that was defined in the Add-RocketCyberBaseURI &amp; Add-RocketCyberAPIKey cmdlets.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-RocketCyberAPIKey</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+          <maml:name>base_uri</maml:name>
+          <maml:description>
+            <maml:para>Define the base URI for the RocketCyber API connection using RocketCyber's URI or a custom URI.</maml:para>
+            <maml:para>The default base URI is https://api-us.rocketcyber.com/v3</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>$RocketCyber_Base_URI</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
+        <maml:name>base_uri</maml:name>
+        <maml:description>
+          <maml:para>Define the base URI for the RocketCyber API connection using RocketCyber's URI or a custom URI.</maml:para>
+          <maml:para>The default base URI is https://api-us.rocketcyber.com/v3</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>$RocketCyber_Base_URI</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Test-RocketCyberBaseURI -id 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Tests the base URI &amp; API bearer token that was defined in the Add-RocketCyberBaseURI &amp; Add-RocketCyberAPIKey cmdlets.</maml:para>
+          <maml:para>The default full base uri test path is:     https://api-us.rocketcyber.com/v2/account/id</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Test-RocketCyberBaseURI -base_uri http://myapi.gateway.example.com -id 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Tests the base URI &amp; API bearer token that was defined in the Add-RocketCyberBaseURI &amp; Add-RocketCyberAPIKey cmdlets.</maml:para>
+          <maml:para>The full base uri test path in this example is:     http://myapi.gateway.example.com/id</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Test-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Test-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberOffice</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberOffice</command:noun>
+      <maml:description>
+        <maml:para>Gets office information from the RocketCyber API</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberOffice cmdlet gets office information from all or a defined accountId.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberOffice</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account ID to pull data for.</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <maml:name>accountId</maml:name>
+        <maml:description>
+          <maml:para>The account ID to pull data for.</maml:para>
+          <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+        </maml:description>
+        <command:parameterValue required="true" variableLength="false">Int64</command:parameterValue>
+        <dev:type>
+          <maml:name>Int64</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberOffice</dev:code>
+        <dev:remarks>
+          <maml:para>Office data will be retrieved from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberOffice -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Office data will be retrieved from the accountId 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>12345 | Get-RocketCyberOffice</dev:code>
+        <dev:remarks>
+          <maml:para>Office data will be retrieved from the accountId 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Office/Get-RocketCyberOffice.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Office/Get-RocketCyberOffice.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+</helpItems>
