@@ -40,23 +40,22 @@ function Export-RocketCyberModuleSettings {
         N\A
 
     .LINK
-        https://github.com/Celerium/RocketCyber-PowerShellWrapper
-        https://api-doc.rocketcyber.com/
+        https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Export-RocketCyberModuleSettings.html
 #>
 
     [CmdletBinding(DefaultParameterSetName = 'set')]
     Param (
-        [Parameter(ParameterSetName = 'set')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'set')]
         [string]$RocketCyberConfPath = "$($env:USERPROFILE)\RocketCyberAPI",
 
-        [Parameter(ParameterSetName = 'set')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'set')]
         [string]$RocketCyberConfFile = 'config.psd1'
     )
 
     # Confirm variables exist and are not null before exporting
     if ($RocketCyber_Base_URI -and $RocketCyber_API_Key -and $RocketCyber_JSON_Conversion_Depth) {
         $secureString = $RocketCyber_API_KEY | ConvertFrom-SecureString
-        New-Item -ItemType Directory -Force -Path $RocketCyberConfPath | ForEach-Object {$_.Attributes = 'hidden'}
+        New-Item -Path $RocketCyberConfPath -ItemType Directory -Force | ForEach-Object {$_.Attributes = 'hidden'}
 @"
     @{
         RocketCyber_Base_URI = '$RocketCyber_Base_URI'
@@ -64,12 +63,102 @@ function Export-RocketCyberModuleSettings {
         RocketCyber_JSON_Conversion_Depth = '$RocketCyber_JSON_Conversion_Depth'
     }
 "@ | Out-File -FilePath ($RocketCyberConfPath+"\"+$RocketCyberConfFile) -Force
+
     }
     else {
-        Write-Error $_
         Write-Error "Failed to export RocketCyber Module settings to [ $RocketCyberConfPath\$RocketCyberConfFile ]"
     }
 }
+
+
+
+function Get-RocketCyberModuleSettings{
+<#
+    .SYNOPSIS
+        Gets the saved RocketCyber configuration settings
+
+    .DESCRIPTION
+        The Get-RocketCyberModuleSettings cmdlet gets the saved RocketCyber configuration settings
+
+        By default the configuration file is stored in the following location:
+            $env:USERPROFILE\RocketCyberAPI
+
+    .PARAMETER RocketCyberConfPath
+        Define the location to store the RocketCyber configuration file.
+
+        By default the configuration file is stored in the following location:
+            $env:USERPROFILE\RocketCyberAPI
+
+    .PARAMETER RocketCyberConfFile
+        Define the name of the RocketCyber configuration file.
+
+        By default the configuration file is named:
+            config.psd1
+
+    .PARAMETER openConfFile
+        Opens the RocketCyber configuration file
+
+    .EXAMPLE
+        Get-RocketCyberModuleSettings
+
+        Gets the contents of the configuration file that was created with the
+        Export-RocketCyberModuleSettings
+
+        The default location of the RocketCyber configuration file is:
+            $env:USERPROFILE\RocketCyberAPI\config.psd1
+
+    .EXAMPLE
+        Get-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -RocketCyberConfFile MyConfig.psd1 -openConfFile
+
+        Opens the configuration file from the defined location in the default editor
+
+        The location of the RocketCyber configuration file in this example is:
+            C:\RocketCyberAPI\MyConfig.psd1
+
+    .NOTES
+        N\A
+
+    .LINK
+        https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberModuleSettings.html
+#>
+
+[CmdletBinding(DefaultParameterSetName = 'index')]
+Param (
+    [Parameter(Mandatory = $false, ParameterSetName = 'index')]
+    [String]$RocketCyberConfPath = "$($env:USERPROFILE)\RocketCyberAPI",
+
+    [Parameter(Mandatory = $false, ParameterSetName = 'index')]
+    [String]$RocketCyberConfFile = 'config.psd1',
+
+    [Parameter(Mandatory = $false, ParameterSetName = 'show')]
+    [Switch]$openConfFile
+)
+
+begin{}
+
+process{
+
+    if ( Test-Path -Path $($RocketCyberConfPath + '\' + $RocketCyberConfFile) ){
+
+        if($openConfFile){
+            Invoke-Item -Path $($RocketCyberConfPath + '\' + $RocketCyberConfFile)
+        }
+        else{
+            Import-LocalizedData -BaseDirectory $RocketCyberConfPath -FileName $RocketCyberConfFile
+        }
+
+    }
+    else{
+        Write-Verbose "No configuration file found at [ $RocketCyberConfPath\$RocketCyberConfFile ]"
+    }
+
+}
+
+end{}
+
+}
+
+
 
 function Import-RocketCyberModuleSettings {
 <#
@@ -117,16 +206,15 @@ function Import-RocketCyberModuleSettings {
         N\A
 
     .LINK
-        https://github.com/Celerium/RocketCyber-PowerShellWrapper
-        https://api-doc.rocketcyber.com/
+        https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Import-RocketCyberModuleSettings.html
 #>
 
     [CmdletBinding(DefaultParameterSetName = 'set')]
     Param (
-        [Parameter(ParameterSetName = 'set')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'set')]
         [string]$RocketCyberConfPath = "$($env:USERPROFILE)\RocketCyberAPI",
 
-        [Parameter(ParameterSetName = 'set')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'set')]
         [string]$RocketCyberConfFile = 'config.psd1'
     )
 
@@ -138,25 +226,25 @@ function Import-RocketCyberModuleSettings {
 
             $tmp_config.RocketCyber_API_key = ConvertTo-SecureString $tmp_config.RocketCyber_API_key
 
-            Set-Variable -Name "RocketCyber_API_Key"  -Value $tmp_config.RocketCyber_API_key `
-                        -Option ReadOnly -Scope global -Force
+            Set-Variable -Name 'RocketCyber_Base_URI' -Value $tmp_config.RocketCyber_Base_URI -Option ReadOnly -Scope global -Force
 
-            Set-Variable -Name "RocketCyber_JSON_Conversion_Depth" -Value $tmp_config.RocketCyber_JSON_Conversion_Depth `
-                        -Scope global -Force
+            Set-Variable -Name 'RocketCyber_API_Key' -Value $tmp_config.RocketCyber_API_key -Option ReadOnly -Scope global -Force
 
-        Write-Host "RocketCyberAPI Module configuration loaded successfully from [ $RocketCyberConfPath\$RocketCyberConfFile ]" -ForegroundColor Green
+            Set-Variable -Name 'RocketCyber_JSON_Conversion_Depth' -Value $tmp_config.RocketCyber_JSON_Conversion_Depth -Scope global -Force
+
+        Write-Verbose "The RocketCyberAPI Module configuration loaded successfully from [ $RocketCyberConfPath\$RocketCyberConfFile ]"
 
         # Clean things up
         Remove-Variable "tmp_config"
     }
     else {
-        Write-Verbose "No configuration file found at [ $RocketCyberConfPath\$RocketCyberConfFile ]"
-        Write-Verbose "Please run Add-RocketCyberAPIKey to get started."
+        Write-Verbose "No configuration file found at [ $RocketCyberConfPath\$RocketCyberConfFile ] run Add-RocketCyberAPIKey & Add-RocketCyberBaseURI to get started."
 
-            Set-Variable -Name "RocketCyber_Base_URI" -Value "https://api-us.rocketcyber.com/v2/account" -Option ReadOnly -Scope global -Force
-            Set-Variable -Name "RocketCyber_JSON_Conversion_Depth" -Value 100 -Scope global -Force
+        Set-Variable -Name 'RocketCyber_JSON_Conversion_Depth' -Value 100 -Scope global -Force
     }
 }
+
+
 
 function Remove-RocketCyberModuleSettings {
 <#
@@ -202,38 +290,41 @@ function Remove-RocketCyberModuleSettings {
         N\A
 
     .LINK
-        https://github.com/Celerium/RocketCyber-PowerShellWrapper
-        https://api-doc.rocketcyber.com/
+        https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberModuleSettings.html
 #>
 
-    [CmdletBinding(DefaultParameterSetName = 'set')]
+    [CmdletBinding(SupportsShouldProcess, DefaultParameterSetName = 'set')]
     Param (
-        [Parameter(ParameterSetName = 'set')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'set')]
         [string]$RocketCyberConfPath = "$($env:USERPROFILE)\RocketCyberAPI",
 
-        [Parameter(ParameterSetName = 'set')]
+        [Parameter(Mandatory = $false, ParameterSetName = 'set')]
         [switch]$AndVariables
     )
 
     if(Test-Path $RocketCyberConfPath)  {
 
-        Remove-Item -Path $RocketCyberConfPath -Recurse -Force
+        Remove-Item -Path $RocketCyberConfPath -Recurse -Force -WhatIf:$WhatIfPreference
 
         If ($AndVariables) {
             if ($RocketCyber_API_Key) {
-                Remove-Variable -Name "RocketCyber_API_Key" -Scope global -Force
+                Remove-Variable -Name "RocketCyber_API_Key" -Scope global -Force -WhatIf:$WhatIfPreference
             }
             if ($RocketCyber_Base_URI) {
-                Remove-Variable -Name "RocketCyber_Base_URI" -Scope global -Force
+                Remove-Variable -Name "RocketCyber_Base_URI" -Scope global -Force -WhatIf:$WhatIfPreference
             }
         }
 
+        if ($WhatIfPreference -eq $false){
+
             if (!(Test-Path $RocketCyberConfPath)) {
-                Write-Host "The RocketCyberAPI configuration folder has been removed successfully from [ $RocketCyberConfPath ]" -ForegroundColor Green
+                Write-Output "The RocketCyberAPI configuration folder has been removed successfully from [ $RocketCyberConfPath ]"
             }
             else {
                 Write-Error "The RocketCyberAPI configuration folder could not be removed from [ $RocketCyberConfPath ]"
             }
+
+        }
 
     }
     else {

@@ -26,7 +26,7 @@
 
 #Requires -Version 5.0
 #Requires -Modules @{ ModuleName='Pester'; ModuleVersion='5.0.0' }
-#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='1.0.0' }
+#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='2.0.0' }
 
 # General variables
     $FullFileName = $MyInvocation.MyCommand.Name
@@ -40,7 +40,7 @@ Describe " Testing [ *-RocketCyberBaseURI } functions with [ $FullFileName ]" {
 
         It "[ Add-RocketCyberBaseURI ] without parameter should return a valid URI" {
             Add-RocketCyberBaseURI
-            Get-RocketCyberBaseURI | Should -Be 'https://api-us.rocketcyber.com/v2/account'
+            Get-RocketCyberBaseURI | Should -Be 'https://api-us.rocketcyber.com/v3'
         }
 
         It "[ Add-RocketCyberBaseURI ] should accept a value from the pipeline" {
@@ -55,12 +55,12 @@ Describe " Testing [ *-RocketCyberBaseURI } functions with [ $FullFileName ]" {
 
         It "[ Add-RocketCyberBaseURI ] with parameter -data_center US should return a valid URI" {
             Add-RocketCyberBaseURI -data_center 'US'
-            Get-RocketCyberBaseURI | Should -Be 'https://api-us.rocketcyber.com/v2/account'
+            Get-RocketCyberBaseURI | Should -Be 'https://api-us.rocketcyber.com/v3'
         }
 
         It "[ Add-RocketCyberBaseURI ] with parameter -data_center EU should return a valid URI" {
             Add-RocketCyberBaseURI -data_center 'EU'
-            Get-RocketCyberBaseURI | Should -Be 'https://api-eu.rocketcyber.com/v2/account'
+            Get-RocketCyberBaseURI | Should -Be 'https://api-eu.rocketcyber.com/v3'
         }
 
         It "[ Add-RocketCyberBaseURI ] a trailing / from a base_uri should be removed" {
@@ -73,7 +73,7 @@ Describe " Testing [ *-RocketCyberBaseURI } functions with [ $FullFileName ]" {
 
         It "[ Get-RocketCyberBaseURI ] should return a valid URI" {
             Add-RocketCyberBaseURI
-            Get-RocketCyberBaseURI | Should -Be 'https://api-us.rocketcyber.com/v2/account'
+            Get-RocketCyberBaseURI | Should -Be 'https://api-us.rocketcyber.com/v3'
         }
 
         It "[ Get-RocketCyberBaseURI ] value should be a string" {

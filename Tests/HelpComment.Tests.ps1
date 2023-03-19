@@ -29,7 +29,7 @@
 
 #Requires -Version 5.0
 #Requires -Modules @{ ModuleName='Pester'; ModuleVersion='5.0.0' }
-#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='1.0.0' }
+#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='2.0.0' }
 
 $ModuleName = 'RocketCyberAPI'
 

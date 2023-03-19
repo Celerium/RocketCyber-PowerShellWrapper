@@ -26,7 +26,7 @@
 
 #Requires -Version 5.0
 #Requires -Modules @{ ModuleName='Pester'; ModuleVersion='5.0.0' }
-#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='1.0.0' }
+#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='2.0.0' }
 
 # General variables
     $FullFileName = $MyInvocation.MyCommand.Name
@@ -84,8 +84,8 @@ Describe "Testing [ *-RocketCyberAPIKey ] functions with [ $FullFileName ]" {
         It "[ Test-RocketCyberAPIKey ] without an API key should fail to authenticate" {
             Add-RocketCyberAPIKey -Api_Key "RCAPIKEY"
             Remove-RocketCyberAPIKey
-            $Value = Test-RocketCyberAPIKey -id 12345
-            $Value.Message | Should -BeLike '*access token is not*'
+            $Value = Test-RocketCyberAPIKey
+            $Value.Message | Should -BeLike '*(401) Unauthorized*'
         }
     }
 

@@ -1,8 +1,20 @@
+---
+external help file: RocketCyberAPI-help.xml
+Module Name: RocketCyberAPI
+online version: https://github.com/Celerium/RocketCyber-PowerShellWrapper
+schema: 2.0.0
+title: Home
+has_children: true
+layout: default
+nav_order: 1
+---
+
 # RocketCyber API PowerShell Wrapper
 
 This PowerShell module acts as a wrapper for the [RocketCyber](https://www.rocketcyber.com/) API.
 
-* :warning: **As of 2022-11, This module has only been tested using PowerShell 5.1. Compatibility with PowerShell 7 will come later.
+* :warning: **As of 2023-03, This module has only been tested using PowerShell 5.1. Compatibility with PowerShell 7 will come later.
+* :warning: **RocketCyber has deprecated its v2 API and this module as of 2.0.0 has been migrated to its v3 API
 
 ---
 

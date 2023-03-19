@@ -29,7 +29,7 @@
 
 #Requires -Version 5.0
 #Requires -Modules @{ ModuleName='Pester'; ModuleVersion='5.0.0' }
-#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='1.0.0' }
+#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='2.0.0' }
 
 #Region [ Discovery ]
 
@@ -46,15 +46,20 @@
         Get-Module -Name $ThisModuleName | Remove-Module
 
         # Manifest file path
-        $ManifestFile = "$ThisModulePath\$ThisModuleName.psd1"
+        $ManifestFile = "$ThisModulePath\$ThisModuleName\$ThisModuleName.psd1"
+
+        Set-Variable -Name TestThisModule -Value $ThisModule -Scope Global -Force
+        Set-Variable -Name TestThisModuleName -Value $ThisModuleName -Scope Global -Force
+        Set-Variable -Name TestThisModulePath -Value $ThisModulePath -Scope Global -Force
+        Set-Variable -Name TestManifestFile -Value $ManifestFile -Scope Global -Force
 
     BeforeAll {
 
         $ThisModule = $PSCommandPath -replace '\.Tests\.ps1$'
         $ThisModuleName = $ThisModule | Split-Path -Leaf
 
-        $ThisModulePath = Split-Path (Split-Path -Parent $PSCommandPath) -Parent
-        $ManifestFile = "$ThisModulePath\$ThisModuleName.psd1"
+        $ThisModulePath = (Split-Path (Split-Path -Parent $PSCommandPath) -Parent)
+        $ManifestFile = "$ThisModulePath\$ThisModuleName\$ThisModuleName.psd1"
 
     }
 
@@ -68,7 +73,7 @@ Describe "[ $ThisModuleName ] testing the module manifest file" {
 
     # Generate command list for generating Context / TestCases
     $Module = Get-Module -Name $ThisModuleName
-    $ModuleFiles = $ThisModulePath | Get-ChildItem -File -Recurse | Select-Object *
+    $ModuleFiles = $ThisModulePath+'\'+$ThisModuleName | Get-ChildItem -File -Recurse | Select-Object *
 
 #EndRegion  [Discovery]
 
@@ -87,7 +92,7 @@ Describe "[ $ThisModuleName ] testing the module manifest file" {
             }
 
                 It "[ $ThisModuleName ] manifest RootModule has valid data" -TestCases $Elements {
-                    $Elements.RootModule | Should -Be '.\RocketCyberAPI.psm1'
+                    $Elements.RootModule | Should -Be 'RocketCyberAPI.psm1'
                 }
 
             It "[ $ThisModuleName ] manifest ModuleVersion is not empty" -TestCases $Elements {
@@ -147,7 +152,7 @@ Describe "[ $ThisModuleName ] testing the module manifest file" {
             }
 
                 It "[ $ThisModuleName ] manifest NestedModules has valid data" -TestCases $Elements {
-                    ($Elements.NestedModules.Name).Count | Should -Be 13
+                    ($Elements.NestedModules.Name).Count | Should -Be 12
                 }
 
             It "[ $ThisModuleName ] manifest FunctionsToExport is not empty" -TestCases $Elements {
@@ -155,7 +160,7 @@ Describe "[ $ThisModuleName ] testing the module manifest file" {
             }
 
                 It "[ $ThisModuleName ] manifest FunctionsToExport has valid data" -TestCases $Elements {
-                    ($Elements.ExportedCommands).Count | Should -Be 20
+                    ($Elements.ExportedCommands).Count | Should -Be 21
                 }
 
             It "[ $ThisModuleName ] manifest CmdletsToExport is empty" -TestCases $Elements {
@@ -226,16 +231,16 @@ Describe "[ $ThisModuleName ] testing the module manifest file" {
     Context "[ $ThisModuleName ] Testing Manifest & Script Modules" {
 
         It "[ $ThisModuleName ] manifest & script modules are stored in the correct location" {
-            $($ThisModulePath+"\"+$ThisModuleName.psd1) | Should -Exist
-            $($ThisModulePath+"\"+$ThisModuleName.psm1) | Should -Exist
+            $($ThisModulePath+"\"+$ThisModuleName+"\"+$ThisModuleName.psd1) | Should -Exist
+            $($ThisModulePath+"\"+$ThisModuleName+"\"+$ThisModuleName.psm1) | Should -Exist
         }
 
-        It "[ $ThisModuleName ] has functions in the Internal directory" {
-            "$ThisModulePath\Internal\*.ps1" | Should -Exist
+        It "[ $ThisModuleName ] has functions in the Private directory" {
+            "$ThisModulePath\$ThisModuleName\Private\*.ps1" | Should -Exist
         }
 
-        It "[ $ThisModuleName ] has functions in the Resources directory" {
-            "$ThisModulePath\Resources\*.ps1" | Should -Exist
+        It "[ $ThisModuleName ] has functions in the Public directory" {
+            "$ThisModulePath\$ThisModuleName\Public\*.ps1" | Should -Exist
         }
 
         It "[ $ThisModuleName ] has tests in the Tests directory" {
@@ -248,7 +253,7 @@ Describe "[ $ThisModuleName ] testing the module manifest file" {
         }
 
         It "[ $($ThisModuleName+".psd1")] Should import PowerShell $ThisModuleName successfully" {
-            $TestResults = $ThisModulePath | Import-Module
+            $TestResults = $ThisModulePath+'\'+$ThisModuleName | Import-Module
             $? | Should -Be $true
         }
 
