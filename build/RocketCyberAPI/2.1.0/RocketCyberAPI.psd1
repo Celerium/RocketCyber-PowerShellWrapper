@@ -76,7 +76,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = @('APICalls','ConvertTo-RocketCyberQueryString','Invoke-RocketCyberRequest','Add-RocketCyberAPIKey','Get-RocketCyberAPIKey','Remove-RocketCyberAPIKey','Test-RocketCyberAPIKey','Add-RocketCyberBaseURI','Get-RocketCyberBaseURI','Remove-RocketCyberBaseURI','Export-RocketCyberModuleSettings','Get-RocketCyberModuleSettings','Import-RocketCyberModuleSettings','Initialize-RocketCyberModuleSettings','Remove-RocketCyberModuleSettings','Get-RocketCyberAccounts','Get-RocketCyberAgents','Get-RocketCyberApps','Get-RocketCyberDefender','Get-RocketCyberEvents','Get-RocketCyberFirewalls','Get-RocketCyberIncidents','Get-RocketCyberOffice')
+    FunctionsToExport = @('ConvertTo-RocketCyberQueryString','Invoke-RocketCyberRequest','Add-RocketCyberAPIKey','Get-RocketCyberAPIKey','Remove-RocketCyberAPIKey','Test-RocketCyberAPIKey','Add-RocketCyberBaseURI','Get-RocketCyberBaseURI','Remove-RocketCyberBaseURI','Export-RocketCyberModuleSettings','Get-RocketCyberModuleSettings','Import-RocketCyberModuleSettings','Initialize-RocketCyberModuleSettings','Remove-RocketCyberModuleSettings','Get-RocketCyberAccounts','Get-RocketCyberAgents','Get-RocketCyberApps','Get-RocketCyberDefender','Get-RocketCyberEvents','Get-RocketCyberFirewalls','Get-RocketCyberIncidents','Get-RocketCyberOffice')
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()
