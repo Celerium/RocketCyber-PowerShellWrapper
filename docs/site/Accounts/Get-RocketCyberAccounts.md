@@ -95,5 +95,5 @@ N\A
 
 ## RELATED LINKS
 
-[https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html](https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html)
+[https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccount.html](https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccount.html)
 
