@@ -138,7 +138,7 @@ Get-Help Get-RocketCyberAgents -Full
 
 ## Initial Setup
 
-After installing this module, you will need to configure both the *base URI* & *API keys* that are used to talk with the RocketCyber API.
+After installing this module, you will need to configure both the *base URI* & *API key* that are used to talk with the RocketCyber API.
 
 1. Run `Add-RocketCyberBaseURI`
    - By default, RocketCyber's `https://api-us.rocketcyber.com/v3` URI is used.
@@ -152,7 +152,7 @@ After installing this module, you will need to configure both the *base URI* & *
 <br>
 
 3. [**optional**] Run `Export-RocketCyberModuleSettings`
-   - This will create a config file at `%UserProfile%\RocketCyberAPI` that holds the *base uri* & *API keys* information.
+   - This will create a config file at `%UserProfile%\RocketCyberAPI` that holds the *base uri* & *API key* information.
    - Next time you run `Import-Module -Name RocketCyberAPI`, this configuration file will automatically be loaded.
    - :warning: Exporting module settings encrypts your API keys in a format that can **only be unencrypted by the user principal** that encrypted the secret. It makes use of .NET DPAPI, which for Windows uses reversible encrypted tied to your user principal. This means that you **cannot copy** your configuration file to another computer or user account and expect it to work.
    - :warning: However in Linux\Unix operating systems the secret keys are more obfuscated than encrypted so it is recommend to use a more secure & cross-platform storage method.

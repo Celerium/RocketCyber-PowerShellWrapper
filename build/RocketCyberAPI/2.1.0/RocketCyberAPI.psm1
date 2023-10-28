@@ -1421,7 +1421,7 @@ function Get-RocketCyberAccounts {
         N\A
 
     .LINK
-        https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccounts.html
+        https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccounts.html
 #>
 
     [CmdletBinding(DefaultParameterSetName = 'index')]

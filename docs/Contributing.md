@@ -21,7 +21,6 @@ nav_order: 3
 
 ## **Did you write a patch that fixes a bug?**
 
-* [ ] Submit a pull request to the **dev** branch
 * [ ] Ensure the pull request description clearly describes the problem and solution.
 
 If the feature is accepted and I have time to test, the pull request will be approved.
@@ -35,7 +34,6 @@ If the feature is accepted and I have time to test, the pull request will be app
 * Once the new feature is ready,
 
   * [ ] Update any documentation if needed
-  * [ ] Submit a pulling request to the **development** branch
 
 If the feature is accepted and I have time to test, the pull request will be approved.
 

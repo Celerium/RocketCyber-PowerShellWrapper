@@ -20,7 +20,6 @@ Please delete options that are not relevant.
 ## Checklist
 
 - [ ] I have reviewed the [Contributing](https://github.com/Celerium/RocketCyberAPI/blob/main/.github/CONTRIBUTING.md) guide
-- [ ] I am pulling to the **dev** branch
 - [ ] I have performed a self-review of my own code
 - [ ] I have commented my code, particularly in hard-to-understand areas
 - [ ] I have made corresponding changes to the documentation
