@@ -29,7 +29,7 @@ I recommend downloading the CSV from the link provided rather then viewing the t
 |Internal |           |DELETE|Remove-RocketCyberAPIKey        |YES     |
 |Internal |           |DELETE|Remove-RocketCyberBaseURI       |YES     |
 |Internal |           |DELETE|Remove-RocketCyberModuleSettings|YES     |
-|Internal |           |GET   |Invoke-APIRequest               |YES     |
+|Internal |           |GET   |Invoke-RocketCyberRequest               |YES     |
 |Internal |           |GET   |Get-RocketCyberAPIKey           |YES     |
 |Internal |           |GET   |Test-RocketCyberAPIKey          |YES     |
 |Internal |           |GET   |Get-RocketCyberBaseURI          |YES     |

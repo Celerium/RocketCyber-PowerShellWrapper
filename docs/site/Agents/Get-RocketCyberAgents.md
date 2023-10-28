@@ -148,7 +148,7 @@ required to use this parameter.
 
 Cannot be used with the startDate & endDate parameters
 
-Start UTC Time  |  End UTC Time
+Start UTC Time | End UTC Time
 
 Example:
     2022-05-09T00:33:38.245Z|2022-05-10T23:59:38.245Z
@@ -293,7 +293,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: 1
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -311,7 +311,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: 1000
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

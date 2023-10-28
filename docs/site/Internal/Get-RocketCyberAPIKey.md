@@ -16,7 +16,7 @@ Gets the RocketCyber API bearer token global variable.
 ## SYNTAX
 
 ```powershell
-Get-RocketCyberAPIKey [-PlainText] [<CommonParameters>]
+Get-RocketCyberAPIKey [-plainText] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -43,7 +43,7 @@ returns the API key in plain text
 
 ## PARAMETERS
 
-### -PlainText
+### -plainText
 Decrypt and return the API key in plain text.
 
 ```yaml

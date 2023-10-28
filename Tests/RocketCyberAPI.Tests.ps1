@@ -1,312 +1,255 @@
 <#
-    .SYNOPSIS
-        Pester tests for the RocketCyberAPI module manifest file.
+.NOTES
+    Copyright 1990-2024 Celerium
 
-    .DESCRIPTION
-        Pester tests for the RocketCyberAPI module manifest file.
+    NAME: RocketCyberAPI.Tests.ps1
+    Type: PowerShell
 
-    .EXAMPLE
-        Invoke-Pester -Path .\Tests\RocketCyberAPI.Tests.ps1
+        AUTHOR:  David Schulte
+        DATE:    2023-04-1
+        EMAIL:   celerium@Celerium.org
+        Updated: 2023-09-16
 
-        Runs a pester test against "RocketCyberAPI.Tests.ps1" and outputs simple test results.
+    TODO:
+    Huge thank you to LazyWinAdmin, Vexx32, & JeffBrown for their blog posts!
 
-    .EXAMPLE
-        Invoke-Pester -Path .\Tests\RocketCyberAPI.Tests.ps1 -Output Detailed
+.SYNOPSIS
+    Pester tests for the RocketCyberAPI module manifest file.
 
-        Runs a pester test against "RocketCyberAPI.Tests.ps1" and outputs detailed test results.
+.DESCRIPTION
+    Pester tests for the RocketCyberAPI module manifest file.
 
-    .NOTES
-        Build out more robust, logical, & scalable pester tests.
-        Huge thank you to LazyWinAdmin, Vexx32, & JeffBrown for their blog posts!
+.PARAMETER moduleName
+    The name of the local module to import
 
-    .LINK
-        https://vexx32.github.io/2020/07/08/Verify-Module-Help-Pester/
-        https://lazywinadmin.com/2016/05/using-pester-to-test-your-comment-based.html
-        https://jeffbrown.tech/getting-started-with-pester-testing-in-powershell/
-        https://github.com/Celerium/RocketCyber-PowerShellWrapper
+.PARAMETER Version
+    The version of the local module to import
+
+.PARAMETER buildTarget
+    Which version of the module to run tests against
+
+    Allowed values:
+        'built', 'notBuilt'
+
+.EXAMPLE
+    Invoke-Pester -Path .\Tests\Private\apiKeys\Get-RocketCyberAPIKey.Tests.ps1
+
+    Runs a pester test and outputs simple results
+
+.EXAMPLE
+    Invoke-Pester -Path .\Tests\Private\apiKeys\Get-RocketCyberAPIKey.Tests.ps1 -Output Detailed
+
+    Runs a pester test and outputs detailed results
+
+.INPUTS
+    N\A
+
+.OUTPUTS
+    N\A
+
+.LINK
+    https://celerium.org
+
+.LINK
+    https://vexx32.github.io/2020/07/08/Verify-Module-Help-Pester/
+    https://lazywinadmin.com/2016/05/using-pester-to-test-your-comment-based.html
+    https://jeffbrown.tech/getting-started-with-pester-testing-in-powershell/
+    https://github.com/Celerium/RocketCyber-PowerShellWrapper
 
 #>
 
-#Requires -Version 5.0
-#Requires -Modules @{ ModuleName='Pester'; ModuleVersion='5.0.0' }
-#Requires -Modules @{ ModuleName='RocketCyberAPI'; ModuleVersion='2.0.0' }
+<############################################################################################
+                                        Code
+############################################################################################>
+#Requires -Version 5.1
+#Requires -Modules @{ ModuleName='Pester'; ModuleVersion='5.5.0' }
 
-#Region [ Discovery ]
+#Region     [ Parameters ]
 
-    #IDK why I have to duplicate this, but it works.
+#Available in Discovery & Run
+[CmdletBinding()]
+param (
+    [Parameter(Mandatory = $false)]
+    [ValidateNotNullOrEmpty()]
+    [String]$moduleName = 'RocketCyberAPI',
 
-        # Obtain name of this module by parsing name of test file (RocketCyberAPI\Tests\RocketCyberAPI.Tests.ps1)
-        $ThisModule = $PSCommandPath -replace '\.Tests\.ps1$'
-        $ThisModuleName = $ThisModule | Split-Path -Leaf
+    [Parameter(Mandatory=$true)]
+    [ValidateNotNullOrEmpty()]
+    [String]$version,
 
-        # Obtain path of the module based on location of test file (RocketCyberAPI\Tests\RocketCyberAPI.Tests.ps1)
-        $ThisModulePath = Split-Path (Split-Path -Parent $PSCommandPath) -Parent
+    [Parameter(Mandatory=$true)]
+    [ValidateSet('built','notBuilt')]
+    [string]$buildTarget
+)
 
-        # Make sure one or multiple versions of the module are not loaded
-        Get-Module -Name $ThisModuleName | Remove-Module
+#EndRegion  [ Parameters ]
 
-        # Manifest file path
-        $ManifestFile = "$ThisModulePath\$ThisModuleName\$ThisModuleName.psd1"
+#Region     [ Prerequisites ]
 
-        Set-Variable -Name TestThisModule -Value $ThisModule -Scope Global -Force
-        Set-Variable -Name TestThisModuleName -Value $ThisModuleName -Scope Global -Force
-        Set-Variable -Name TestThisModulePath -Value $ThisModulePath -Scope Global -Force
-        Set-Variable -Name TestManifestFile -Value $ManifestFile -Scope Global -Force
+#Available in Describe and Context but NOT It
+#Can be used in [ It ] with [ -TestCases @{ VariableName = $VariableName } ]
+    BeforeDiscovery{
 
+        $pester_TestName = (Get-Item -Path $PSCommandPath).Name
+        $commandName = $pester_TestName -replace '.Tests.ps1',''
+
+    }
+
+#Available inside It but NOT Describe or Context
     BeforeAll {
 
-        $ThisModule = $PSCommandPath -replace '\.Tests\.ps1$'
-        $ThisModuleName = $ThisModule | Split-Path -Leaf
+        if ($IsWindows -or $PSEdition -eq 'Desktop') {
+            $rootPath = "$( $PSCommandPath.Substring(0, $PSCommandPath.IndexOf('\tests', [System.StringComparison]::OrdinalIgnoreCase)) )"
+        }
+        else{
+            $rootPath = "$( $PSCommandPath.Substring(0, $PSCommandPath.IndexOf('/tests', [System.StringComparison]::OrdinalIgnoreCase)) )"
+        }
 
-        $ThisModulePath = (Split-Path (Split-Path -Parent $PSCommandPath) -Parent)
-        $ManifestFile = "$ThisModulePath\$ThisModuleName\$ThisModuleName.psd1"
+        switch ($buildTarget){
+            'built'     { $modulePath = Join-Path -Path $rootPath -ChildPath "\build\$moduleName\$version" }
+            'notBuilt'  { $modulePath = Join-Path -Path $rootPath -ChildPath "$moduleName" }
+        }
+
+        if (Get-Module -Name $moduleName){
+            Remove-Module -Name $moduleName -Force
+        }
+
+        $modulePsd1 = Join-Path -Path $modulePath -ChildPath "$moduleName.psd1"
+        $modulePsm1 = Join-Path -Path $modulePath -ChildPath "$moduleName.psm1"
+
+        Import-Module -Name $modulePsd1 -ErrorAction Stop -ErrorVariable moduleError *> $null
+
+        $Module = Get-Module -Name $moduleName | Select-Object * -ExcludeProperty Definition
+        $moduleFiles = Get-ChildItem -Path $modulePath -File -Recurse
+
+        if ($moduleError){
+            $moduleError
+            exit 1
+        }
 
     }
 
-#EndRegion [ Discovery ]
+    AfterAll{
 
-Describe "[ $ThisModuleName ] testing the module manifest file" {
-
-#Region     [Discovery]
-
-    $ModuleInformation = Import-module -Name $ManifestFile -PassThru
-
-    # Generate command list for generating Context / TestCases
-    $Module = Get-Module -Name $ThisModuleName
-    $ModuleFiles = $ThisModulePath+'\'+$ThisModuleName | Get-ChildItem -File -Recurse | Select-Object *
-
-#EndRegion  [Discovery]
-
-    ForEach ($ManifestFileElement in $Module) {
-
-        Context "[ $ThisModuleName ] Manifest File Elements" {
-
-        #Region Discovery
-
-        $Elements = @{ Elements = $Module | Select-Object -Property * }
-
-        #EndRegion Discovery
-
-            It "[ $ThisModuleName ] manifest RootModule is not empty" -TestCases $Elements {
-                $Elements.RootModule | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest RootModule has valid data" -TestCases $Elements {
-                    $Elements.RootModule | Should -Be 'RocketCyberAPI.psm1'
-                }
-
-            It "[ $ThisModuleName ] manifest ModuleVersion is not empty" -TestCases $Elements {
-                $Elements.Version | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest ModuleVersion has valid data" -TestCases $Elements {
-                    $Elements.Version | Should -BeGreaterOrEqual '1.0.0'
-                }
-
-            It "[ $ThisModuleName ] manifest GUID is not empty" -TestCases $Elements {
-                $Elements.GUID | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest GUID has valid data" -TestCases $Elements {
-                    $Elements.GUID | Should -Be '07d31b78-b91e-4af3-84b2-b019db2dfc4b'
-                }
-
-            It "[ $ThisModuleName ] manifest Author is not empty" -TestCases $Elements {
-                $Elements.Author | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest Author has valid data" -TestCases $Elements {
-                    $Elements.Author | Should -Be 'David Schulte'
-                }
-
-            It "[ $ThisModuleName ] manifest CompanyName is not empty" -TestCases $Elements {
-                $Elements.CompanyName | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest CompanyName has valid data" -TestCases $Elements {
-                    $Elements.CompanyName | Should -Be 'Celerium'
-                }
-
-            It "[ $ThisModuleName ] manifest Copyright is not empty" -TestCases $Elements {
-                $Elements.Copyright | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest Copyright has valid data" -TestCases $Elements {
-                    $Elements.Copyright | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/LICENSE'
-                }
-
-            It "[ $ThisModuleName ] manifest Description is not empty" -TestCases $Elements {
-                $Elements.Description | Should -Not -BeNullOrEmpty
-            }
-
-            It "[ $ThisModuleName ] manifest PowerShellVersion is not empty" -TestCases $Elements {
-                $Elements.PowerShellVersion | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest PowerShellVersion has valid data" -TestCases $Elements {
-                    $Elements.PowerShellVersion | Should -BeGreaterOrEqual '5.0'
-                }
-
-            It "[ $ThisModuleName ] manifest NestedModules is not empty" -TestCases $Elements {
-                $Elements.NestedModules | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest NestedModules has valid data" -TestCases $Elements {
-                    ($Elements.NestedModules.Name).Count | Should -Be 12
-                }
-
-            It "[ $ThisModuleName ] manifest FunctionsToExport is not empty" -TestCases $Elements {
-                $Elements.ExportedCommands | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest FunctionsToExport has valid data" -TestCases $Elements {
-                    ($Elements.ExportedCommands).Count | Should -Be 21
-                }
-
-            It "[ $ThisModuleName ] manifest CmdletsToExport is empty" -TestCases $Elements {
-                ($Elements.ExportedCmdlets).Count |  Should -Be 0
-            }
-
-            It "[ $ThisModuleName ] manifest VariablesToExport is empty" -TestCases $Elements {
-                ($null -ne ($Elements | Select-Object ExportedVariables) -and (($Elements).ExportedVariables).Count -eq 0) | Should -Be $true
-            }
-
-            It "[ $ThisModuleName ] manifest AliasesToExport is empty" -TestCases $Elements {
-                ($Elements.ExportedAliases).Count |  Should -Be 0
-            }
-
-            It "[ $ThisModuleName ] manifest Tags is not empty" -TestCases $Elements {
-                $Elements.PrivateData.PSData.Tags | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest Tags has valid data" -TestCases $Elements {
-                    $Elements.PrivateData.PSData.Tags | Should -Contain 'RocketCyber'
-                    $Elements.PrivateData.PSData.Tags | Should -Contain 'Celerium'
-                    ($Elements.PrivateData.PSData.Tags).Count | Should -BeGreaterOrEqual 7
-                }
-
-            It "[ $ThisModuleName ] manifest LicenseUri is not empty" -TestCases $Elements {
-                $Elements.LicenseUri | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest LicenseUri has valid data" -TestCases $Elements {
-                    $Elements.LicenseUri | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/LICENSE'
-                }
-
-            It "[ $ThisModuleName ] manifest ProjectUri is not empty" -TestCases $Elements {
-                $Elements.ProjectUri  | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest ProjectUri has valid data" -TestCases $Elements {
-                    $Elements.ProjectUri  | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper'
-                }
-
-            It "[ $ThisModuleName ] manifest IconUri is not empty" -TestCases $Elements {
-                $Elements.IconUri  | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest IconUri has valid data" -TestCases $Elements {
-                    $Elements.IconUri  | Should -Be 'https://raw.githubusercontent.com/Celerium/RocketCyber-PowerShellWrapper/main/.github/Celerium-RocketCyber.png'
-                }
-
-            It "[ $ThisModuleName ] manifest ReleaseNotes is not empty" -TestCases $Elements {
-                $Elements.ReleaseNotes  | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest ReleaseNotes has valid data" -TestCases $Elements {
-                    $Elements.ReleaseNotes  | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/README.md'
-                }
-
-            It "[ $ThisModuleName ] manifest HelpInfoUri is not empty" -TestCases $Elements {
-                $Elements.HelpInfoUri | Should -Not -BeNullOrEmpty
-            }
-
-                It "[ $ThisModuleName ] manifest HelpInfoUri has valid data" -TestCases $Elements {
-                    ($Elements.HelpInfoUri -like "*RocketCyber-PowerShellWrapper*") | Should -Be $true
-                    ($Elements.HelpInfoUri -like "*doc.rocketcyber*") | Should -Be $true
-                }
+        if (Get-Module -Name $moduleName){
+            Remove-Module -Name $moduleName -Force
         }
+
     }
 
-    Context "[ $ThisModuleName ] Testing Manifest & Script Modules" {
+#EndRegion  [ Prerequisites ]
 
-        It "[ $ThisModuleName ] manifest & script modules are stored in the correct location" {
-            $($ThisModulePath+"\"+$ThisModuleName+"\"+$ThisModuleName.psd1) | Should -Exist
-            $($ThisModulePath+"\"+$ThisModuleName+"\"+$ThisModuleName.psm1) | Should -Exist
+Describe "Testing the [ $buildTarget ] version of [ $moduleName ] with [ $pester_TestName ]" {
+
+    Context "[ $moduleName.psd1 ] general manifest data" {
+
+        It "Manifest [ RootModule ] has valid data" {
+            $Module.RootModule | Should -Be 'RocketCyberAPI.psm1'
         }
 
-        It "[ $ThisModuleName ] has functions in the Private directory" {
-            "$ThisModulePath\$ThisModuleName\Private\*.ps1" | Should -Exist
+        It "Manifest [ ModuleVersion ] has valid data" {
+            $Module.Version | Should -BeGreaterOrEqual $version
         }
 
-        It "[ $ThisModuleName ] has functions in the Public directory" {
-            "$ThisModulePath\$ThisModuleName\Public\*.ps1" | Should -Exist
+        It "Manifest [ GUID ] has valid data" {
+            $Module.GUID | Should -Be '07d31b78-b91e-4af3-84b2-b019db2dfc4b'
         }
 
-        It "[ $ThisModuleName ] has tests in the Tests directory" {
-            "$ThisModulePath\Tests\*Tests.ps1" | Should -Exist
+        It "Manifest [ Author ] has valid data" {
+            $Module.Author | Should -Be 'David Schulte'
         }
 
-        It "[ $($ThisModuleName+".psd1")] Should pass Test-ModuleManifest" {
-            $TestResults = $ManifestFile | Test-ModuleManifest -ErrorAction SilentlyContinue
-            $? | Should -Be $true
+        It "Manifest [ CompanyName ] has valid data" {
+            $Module.CompanyName | Should -Be 'Celerium'
         }
 
-        It "[ $($ThisModuleName+".psd1")] Should import PowerShell $ThisModuleName successfully" {
-            $TestResults = $ThisModulePath+'\'+$ThisModuleName | Import-Module
-            $? | Should -Be $true
+        It "Manifest [ Copyright ] has valid data" {
+            $Module.Copyright | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/LICENSE'
         }
 
-        #Both $File need to exist for assertion or the value goes null...IDK why
-        Context "[ $ThisModuleName ] Tests directory contains only tests" {
+        It "Manifest [ Description ] is not empty" {
+            $Module.Description | Should -Not -BeNullOrEmpty
+        }
 
-            ForEach ($File in $($ModuleFiles | Where-Object {$_.Directory -like "*Tests*"})) {
+        It "Manifest [ PowerShellVersion ] has valid data" {
+            $Module.PowerShellVersion | Should -BeGreaterOrEqual '5.0'
+        }
 
-                #Region Discovery
-
-                    $File = @{ File = $File }
-
-                #EndRegion Discovery
-
-                    It "[ $ThisModuleName ] Pester test files: $($File.File.Name)" -TestCases $File {
-                        $File = @{ File = $File }
-                        $PesterTestFile = $File.File.Name -replace '\.Tests\.ps1$'
-                        "$($File.File.Directory)\$PesterTestFile.Tests.ps1" | Should -Exist
-                    }
+        It "Manifest [ NestedModules ] has valid data" {
+            switch ($buildTarget){
+                'built'     { ($Module.NestedModules.Name).Count | Should -Be 0 }
+                'notBuilt'  { ($Module.NestedModules.Name).Count | Should -Be 22 }
             }
         }
-    }
 
-    Context "[ $ThisModuleName ] Testing for PowerShell file types" {
-        #Region Discovery
-
-        $Files = @{ Files = $ModuleFiles | Select-Object -Property * }
-
-        #EndRegion Discovery
-
-            It "[ $ThisModuleName ] contains only PowerShell files" -TestCases $Files {
-                ($Files | Group-Object Extension).Name.Count | Should -Be 3
-            }
-    }
-
-    #Both $File need to exist for assertion or the value goes null...IDK why
-    Context "[ $ThisModuleName ] Testing for valid PowerShell code" {
-
-        ForEach ($File in $ModuleFiles) {
-
-            #Region Discovery
-
-                $File = @{ File = $File }
-
-            #EndRegion Discovery
-
-                It "[ $ThisModuleName ] valid PowerShell code for: $($File.File.Name)" -TestCases $File {
-                    $File = @{ File = $File }
-                    $psFile = Get-Content -Path $($File.File.FullName) -ErrorAction Stop
-                    $errors = $null
-                    $null = [System.Management.Automation.PSParser]::Tokenize($psfile, [ref]$errors)
-                    $errors.Count | Should -Be 0
-                }
+        It "Manifest [ FunctionsToExport ] has valid data" {
+            ($Module.ExportedCommands).Count | Should -Be 45
         }
+
+        It "Manifest [ CmdletsToExport ] is empty" {
+            ($Module.ExportedCmdlets).Count |  Should -Be 0
+        }
+
+        It "Manifest [ VariablesToExport ] is empty" {
+            ($Module.ExportedVariables).Count |  Should -Be 0
+        }
+
+        It "Manifest [ AliasesToExport ] has alias" {
+            switch ($buildTarget){
+                'built'     { ($Module.ExportedAliases).Count |  Should -Be 24 }
+                'notBuilt'  { $Module.ExportedAliases |  Should -Not -BeNullOrEmpty }
+            }
+        }
+
+        It "Manifest [ Tags ] has valid data" {
+            $Module.PrivateData.PSData.Tags | Should -Contain 'RocketCyber'
+            $Module.PrivateData.PSData.Tags | Should -Contain 'Celerium'
+            ($Module.PrivateData.PSData.Tags).Count | Should -BeGreaterOrEqual 8
+        }
+
+        It "Manifest [ LicenseUri ] has valid data" {
+            $Module.LicenseUri | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/LICENSE'
+        }
+
+        It "Manifest [ ProjectUri ] has valid data" {
+            $Module.ProjectUri  | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper'
+        }
+
+        It "Manifest [ IconUri ] has valid data" {
+            $Module.IconUri  | Should -Be 'https://raw.githubusercontent.com/Celerium/RocketCyber-PowerShellWrapper/main/.github/images/Celerium_PoSHGallery_RocketCyberAPI.png'
+        }
+
+        It "Manifest [ ReleaseNotes ] has valid data" {
+            $Module.ReleaseNotes  | Should -Be 'https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/README.md'
+        }
+
+        It "Manifest [ HelpInfoUri ] is not empty" {
+            $Module.HelpInfoUri | Should -BeNullOrEmpty
+        }
+
     }
+
+    Context "[ $moduleName.psd1 ] module import test" {
+
+        It "Module contains only PowerShell files" {
+            ($moduleFiles | Group-Object Extension).Name.Count | Should -BeLessOrEqual 3
+        }
+
+        It "Module files exist" {
+            $modulePsd1 | Should -Exist
+            $modulePsm1 | Should -Exist
+        }
+
+        It "Should pass Test-ModuleManifest" {
+            $modulePsd1 | Test-ModuleManifest -ErrorAction SilentlyContinue -ErrorVariable error_ModuleManifest
+            [bool]$error_ModuleManifest | Should -Be $false
+        }
+
+        It "Should import successfully" {
+            Import-Module $modulePsd1 -ErrorAction SilentlyContinue -ErrorVariable error_ModuleImport
+            [bool]$error_ModuleImport | Should -Be $false
+        }
+
+    }
+
 }

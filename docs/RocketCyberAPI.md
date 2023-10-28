@@ -18,13 +18,13 @@ Sets your API bearer token used to authenticate all API calls.
 ### [Add-RocketCyberBaseURI](site/Internal/Add-RocketCyberBaseURI.md)
 Sets the base URI for the RocketCyber API connection.
 
-### [ConvertTo-QueryString](site/Internal/ConvertTo-QueryString.md)
+### [ConvertTo-RocketCyberQueryString](site/Internal/ConvertTo-RocketCyberQueryString.md)
 Converts uri filter parameters
 
 ### [Export-RocketCyberModuleSettings](site/Internal/Export-RocketCyberModuleSettings.md)
 Exports the RocketCyber BaseURI, API, & JSON configuration information to file.
 
-### [Get-RocketCyberAccount](site/Account/Get-RocketCyberAccount.md)
+### [Get-RocketCyberAccounts](site/Accounts/Get-RocketCyberAccounts.md)
 Gets account information for a given ID.
 
 ### [Get-RocketCyberAgents](site/Agents/Get-RocketCyberAgents.md)
@@ -60,7 +60,7 @@ Gets office information from the RocketCyber API
 ### [Import-RocketCyberModuleSettings](site/Internal/Import-RocketCyberModuleSettings.md)
 Imports the RocketCyber BaseURI, API, & JSON configuration information to the current session.
 
-### [Invoke-APIRequest](site/Internal/Invoke-APIRequest.md)
+### [Invoke-RocketCyberRequest](site/Internal/Invoke-RocketCyberRequest.md)
 Makes an API request
 
 ### [Remove-RocketCyberAPIKey](site/Internal/Remove-RocketCyberAPIKey.md)

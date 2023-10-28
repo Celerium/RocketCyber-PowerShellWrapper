@@ -17,8 +17,8 @@ Gets RocketCyber firewalls from an account.
 
 ```powershell
 Get-RocketCyberFirewalls [[-accountId] <Int64[]>] [[-deviceId] <String>] [[-ipAddress] <String>]
- [[-macAddress] <String[]>] [[-type] <String[]>] [[-page] <Int32>] [[-pageSize] <Int32>] [[-sort] <String>]
- [-allPages] [<CommonParameters>]
+ [[-macAddress] <String[]>] [[-type] <String[]>] [-counters] [[-page] <Int32>] [[-pageSize] <Int32>]
+ [[-sort] <String>] [-allPages] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -154,6 +154,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -counters
+Flag to include additional firewall counter data
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -page
 The target page of data.
 
@@ -169,7 +184,7 @@ Aliases:
 
 Required: False
 Position: 6
-Default value: 1
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -187,7 +202,7 @@ Aliases:
 
 Required: False
 Position: 7
-Default value: 1000
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

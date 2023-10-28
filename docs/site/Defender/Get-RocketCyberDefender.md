@@ -20,7 +20,7 @@ Get-RocketCyberDefender [-accountId <Int64>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-The Get-RocketCyberApps cmdlet gets an accounts defender information
+The Get-RocketCyberDefender cmdlet gets an accounts defender information
 from the RocketCyber API.
 
 This includes various health & risk values
@@ -29,7 +29,7 @@ This includes various health & risk values
 
 ### EXAMPLE 1
 ```powershell
-Get-RocketCyberApps
+Get-RocketCyberDefender
 ```
 
 Gets defender information all accounts accessible
@@ -37,7 +37,7 @@ by the bearer token
 
 ### EXAMPLE 2
 ```powershell
-Get-RocketCyberApps -accountId 12345
+Get-RocketCyberDefender -accountId 12345
 ```
 
 Gets defender information from account 12345

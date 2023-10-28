@@ -1,32 +1,18 @@
----
-title: Contributing
-parent: Home
-nav_order: 3
----
-
-{: .warning }
-This is an ongoing project
-
-[Source Contributing Guide](https://github.com/Celerium/RocketCyber-PowerShellWrapper/blob/main/.github/CONTRIBUTING.md)
-
----
-
 # How to contribute to this module
 
 > Please note: As a loose rule any pull requests for general code cleanup will generally be merged when a new version is released. I have a limited number of hours per week to review and test pull requests. I will do my best to test pull requests within a reasonable time frame, but no guarantees can be made.
 
 ## **Did you find a bug?**
 
-* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/Celerium/RocketCyber-PowerShellWrapper/issues).
+* **Ensure the bug was not already reported** by searching on GitHub under [Issues](https://github.com/Celerium/RocketCyberAPI/issues).
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/Celerium/RocketCyber-PowerShellWrapper/issues/new/choose).
+* If you're unable to find an open issue addressing the problem, [open a new one](https://github.com/Celerium/RocketCyberAPI/issues/new/choose).
   * Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
 ## **Did you write a patch that fixes a bug?**
 
-* [ ] Submit a pulling request to the **development** branch
+* [ ] Submit a pull request to the **dev** branch
 * [ ] Ensure the pull request description clearly describes the problem and solution.
-* [ ] If updating documentation make sure to update the tracking CSV in the docs folder if needed
 
 If the feature is accepted and I have time to test, the pull request will be approved.
 
@@ -39,7 +25,6 @@ If the feature is accepted and I have time to test, the pull request will be app
 * Once the new feature is ready,
 
   * [ ] Update any documentation if needed
-  * [ ] Update the tracking CSV in the docs folder if needed
   * [ ] Submit a pulling request to the **development** branch
 
 If the feature is accepted and I have time to test, the pull request will be approved.

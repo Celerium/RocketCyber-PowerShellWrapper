@@ -15,9 +15,15 @@ Gets app event information from the RocketCyber API.
 
 ## SYNTAX
 
+### indexByEvent (Default)
 ```powershell
 Get-RocketCyberEvents -appId <Int32> [-verdict <String[]>] [-accountId <Int64[]>] [-details <String>]
  [-dates <String>] [-page <Int32>] [-pageSize <Int32>] [-sort <String>] [-allPages] [<CommonParameters>]
+```
+
+### indexByEventSummary
+```powershell
+Get-RocketCyberEvents [-accountId <Int64[]>] [-eventSummary] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -66,7 +72,7 @@ The app ID.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: True
@@ -86,7 +92,7 @@ Allowed Values:
 
 ```yaml
 Type: String[]
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
@@ -116,6 +122,21 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -eventSummary
+Shows summary of events for each app
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: indexByEventSummary
+Aliases:
+
+Required: True
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -details
 This parameter allows users to target specific attributes within the details object.
 
@@ -128,7 +149,7 @@ Example: (appId 7)
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
@@ -155,7 +176,7 @@ Example:
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
@@ -175,12 +196,12 @@ and which items to return.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
 Position: Named
-Default value: 1
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -193,12 +214,12 @@ The number of items to return from the data set.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
 Position: Named
-Default value: 1000
+Default value: 0
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -214,7 +235,7 @@ Example:
 
 ```yaml
 Type: String
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
@@ -229,7 +250,7 @@ Returns all items from an endpoint
 
 ```yaml
 Type: SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: indexByEvent
 Aliases:
 
 Required: False
@@ -250,8 +271,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 As of 2023-03
     Other than the parameters shown here, app specific parameters vary from app to app,
     however I have not found any documentation around this.
-
-    https://api-doc.rocketcyber.com/#a6f5b2f8-a968-4132-bd7d-1fdc12c7152e
 
 ## RELATED LINKS
 

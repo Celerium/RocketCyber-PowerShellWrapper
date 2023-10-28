@@ -2,9 +2,231 @@
 <helpItems schema="maml" xmlns="http://msh">
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Get-RocketCyberAccount</command:name>
+      <command:name>Add-RCAPIKey</command:name>
+      <command:verb>Add</command:verb>
+      <command:noun>RCAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Sets your API bearer token used to authenticate all API calls.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberAPIKey cmdlet sets your API bearer token which is used to authenticate all API calls made to RocketCyber. Once the API bearer token is defined, it is encrypted using SecureString.</maml:para>
+      <maml:para>The RocketCyber API bearer tokens are generated via the RocketCyber web interface at Provider Settings &gt; RocketCyber API</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Add-RCAPIKey</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Prompts to enter in the API bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey -Api_key 'your_api_key'</dev:code>
+        <dev:remarks>
+          <maml:para>The RocketCyber API will use the string entered into the [ -Api_Key ] parameter.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>'12345' | Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>The Add-RocketCyberAPIKey function will use the string passed into it as its API bearer token.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Add-RCAPIKey.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Add-RCBaseURI</command:name>
+      <command:verb>Add</command:verb>
+      <command:noun>RCBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Sets the base URI for the RocketCyber API connection.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberBaseURI cmdlet sets the base URI which is later used to construct the full URI for all API calls.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Add-RCBaseURI</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-us.rocketcyber.com/v3 which is RocketCyber's default URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -data_center EU</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-eu.rocketcyber.com/v3 which is RocketCyber's Europe URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -base_uri http://myapi.gateway.example.com</dev:code>
+        <dev:remarks>
+          <maml:para>A custom API gateway of http://myapi.gateway.example.com will be used for all API calls to RocketCyber's API.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Add-RCBaseURI.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>ConvertTo-RCQueryString</command:name>
+      <command:verb>ConvertTo</command:verb>
+      <command:noun>RCQueryString</command:noun>
+      <maml:description>
+        <maml:para>Converts uri filter parameters</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-RocketCyberRequest cmdlet converts &amp; formats uri filter parameters from a function which are later used to make the full resource uri for an API call</maml:para>
+      <maml:para>This is an internal helper function the ties in directly with the Invoke-RocketCyberRequest &amp; any public functions that define parameters</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>ConvertTo-RCQueryString</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>ConvertTo-RocketCyberQueryString -uri_Filter $uri_Filter -resource_Uri '/account'</dev:code>
+        <dev:remarks>
+          <maml:para>Example: (From public function)     $uri_Filter = @{}</maml:para>
+          <maml:para>    ForEach ( $Key in $PSBoundParameters.GetEnumerator() ){         if( $excludedParameters -contains $Key.Key ){$null}         else{ $uri_Filter += @{ $Key.Key = $Key.Value } }     }</maml:para>
+          <maml:para>    1x key = https://api-us.rocketcyber.com/v3/account?accountId=12345     2x key = https://api-us.rocketcyber.com/v3/account?accountId=12345&amp;details=True</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/ConvertTo-RCQueryString.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-RocketCyberQueryString.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-RocketCyberQueryString.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Export-RCModuleSettings</command:name>
+      <command:verb>Export</command:verb>
+      <command:noun>RCModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Gets the saved RocketCyber configuration settings</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberModuleSettings cmdlet gets the saved RocketCyber configuration settings</maml:para>
+      <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Export-RCModuleSettings</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the contents of the configuration file that was created with the Export-RocketCyberModuleSettings</maml:para>
+          <maml:para>The default location of the RocketCyber configuration file is:     $env:USERPROFILE\RocketCyberAPI\config.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -RocketCyberConfFile MyConfig.psd1 -openConfFile</dev:code>
+        <dev:remarks>
+          <maml:para>Opens the configuration file from the defined location in the default editor</maml:para>
+          <maml:para>The location of the RocketCyber configuration file in this example is:     C:\RocketCyberAPI\MyConfig.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Export-RCModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCAccounts</command:name>
       <command:verb>Get</command:verb>
-      <command:noun>RocketCyberAccount</command:noun>
+      <command:noun>RCAccounts</command:noun>
       <maml:description>
         <maml:para>Gets account information for a given ID.</maml:para>
       </maml:description>
@@ -14,7 +236,1150 @@
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Get-RocketCyberAccount</maml:name>
+        <maml:name>Get-RCAccounts</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAccount</dev:code>
+        <dev:remarks>
+          <maml:para>Account data will be retrieved from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAccount -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Account data will be retrieved for the account with the accountId 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>12345 | Get-RocketCyberAccount</dev:code>
+        <dev:remarks>
+          <maml:para>Account data will be retrieved for the account with the accountId 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCAccounts.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCAgents</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCAgents</command:noun>
+      <maml:description>
+        <maml:para>Gets RocketCyber agents from an account.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberAgents cmdlet gets agent information for all accounts or for agents associated to an account ID.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCAgents</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents -id 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from account 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents -id 12345 -sort hostname:asc</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from account 12345.</maml:para>
+          <maml:para>Data is sorted by hostname and returned in ascending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAgents -id 12345 -connectivity offline,isolated</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 offline agents from account 12345 that are either offline or isolated.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCAgents.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Agents/Get-RocketCyberAgents.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Agents/Get-RocketCyberAgents.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCAPIKey</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Gets the RocketCyber API bearer token global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberAPIKey cmdlet gets the RocketCyber API bearer token global variable and returns it as a SecureString.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCAPIKey</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the RocketCyber API bearer token global variable and returns it as a SecureString.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberAPIKey -PlainText</dev:code>
+        <dev:remarks>
+          <maml:para>Gets and decrypts the API key from the global variable and returns the API key in plain text</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCAPIKey.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCApps</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCApps</command:noun>
+      <maml:description>
+        <maml:para>Gets an accounts apps from the RocketCyber API.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberApps cmdlet gets an accounts apps from the RocketCyber API.</maml:para>
+      <maml:para>Can be used with the Get-RocketCyberEvents cmdlet</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCApps</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps</dev:code>
+        <dev:remarks>
+          <maml:para>Gets active apps from accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Gets active apps from account 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberApps -accountId 12345 -status inactive</dev:code>
+        <dev:remarks>
+          <maml:para>Gets inactive apps from account 12345.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCApps.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Apps/Get-RocketCyberApps.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Apps/Get-RocketCyberApps.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCBaseURI</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Shows the RocketCyber base URI global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberBaseURI cmdlet shows the RocketCyber base URI global variable value.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCBaseURI</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>Shows the RocketCyber base URI global variable value.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCBaseURI.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Get-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCDefender</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCDefender</command:noun>
+      <maml:description>
+        <maml:para>Gets defender information from the RocketCyber API.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberDefender cmdlet gets an accounts defender information from the RocketCyber API.</maml:para>
+      <maml:para>This includes various health &amp; risk values</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCDefender</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberDefender</dev:code>
+        <dev:remarks>
+          <maml:para>Gets defender information all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberDefender -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Gets defender information from account 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCDefender.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Defender/Get-RocketCyberDefender.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Defender/Get-RocketCyberDefender.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCEvents</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCEvents</command:noun>
+      <maml:description>
+        <maml:para>Gets app event information from the RocketCyber API.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberEvents cmdlet gets app event information for events associated to all or a defined account ID.</maml:para>
+      <maml:para>Use the Get-RockerCyberApp cmdlet to get app ids</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCEvents</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>As of 2023-03     Other than the parameters shown here, app specific parameters vary from app to app,     however I have not found any documentation around this.</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -appId 7</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -accountId 12345 -appId 7</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events from account 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -appId 7 -sort dates:desc</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events and the data set is sort by dates in descending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberEvents -appId 7 -verdict suspicious</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 appId 7 events and the data set is sort by dates in descending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCEvents.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Events/Get-RocketCyberEvents.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Events/Get-RocketCyberEvents.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCFirewalls</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCFirewalls</command:noun>
+      <maml:description>
+        <maml:para>Gets RocketCyber firewalls from an account.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberFirewalls cmdlet gets firewalls from an account.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCFirewalls</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 agents from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>The first 1000 firewalls are pulled from accountId 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls -macAddress '11:22:33:aa:bb:cc'</dev:code>
+        <dev:remarks>
+          <maml:para>Get the firewall with the defined macAddress</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberFirewalls -type SonicWall,Fortinet</dev:code>
+        <dev:remarks>
+          <maml:para>Get firewalls with the defined type</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCFirewalls.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Firewalls/Get-RocketCyberFirewalls.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Firewalls/Get-RocketCyberFirewalls.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCIncidents</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCIncidents</command:noun>
+      <maml:description>
+        <maml:para>Gets incident information from the RocketCyber API</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberIncidents cmdlet gets incident information associated to all or a defined account ID.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCIncidents</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>As of 2023-03:     Any parameters that say wildcards are required is not valid</maml:para>
+        <maml:para>    Using wildcards in the query string do not work as the endpoint     already search's via wildcard. If you use a wildcard '*' it     will not return any results.</maml:para>
+        <maml:para>The remediation parameter does not appear to work</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 incidents from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -accountId 12345 -Id 9876</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the defined incident Id from the defined accountId</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -title nmap -resolvedAt '2023-01-01|'</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 incidents from all accounts accessible by the bearer token that were resolved after the defined startDate with the defined word in the title.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -description audit -createdAt '|2023-03-01'</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 incidents from all accounts accessible by the bearer token that were created before the defined endDate with the defined word in the description.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 5 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberIncidents -status resolved -sort title:asc</dev:code>
+        <dev:remarks>
+          <maml:para>Gets the first 1000 resolved incidents from all accounts accessible by the bearer token and the data is return by title in ascending order.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCIncidents.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Incidents/Get-RocketCyberIncidents.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Incidents/Get-RocketCyberIncidents.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RCOffice</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RCOffice</command:noun>
+      <maml:description>
+        <maml:para>Gets office information from the RocketCyber API</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberOffice cmdlet gets office information from all or a defined accountId.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RCOffice</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberOffice</dev:code>
+        <dev:remarks>
+          <maml:para>Office data will be retrieved from all accounts accessible by the bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Get-RocketCyberOffice -accountId 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Office data will be retrieved from the accountId 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>12345 | Get-RocketCyberOffice</dev:code>
+        <dev:remarks>
+          <maml:para>Office data will be retrieved from the accountId 12345</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCOffice.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Office/Get-RocketCyberOffice.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Office/Get-RocketCyberOffice.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Import-RCModuleSettings</command:name>
+      <command:verb>Import</command:verb>
+      <command:noun>RCModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Imports the RocketCyber BaseURI, API, &amp; JSON configuration information to the current session.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Import-RocketCyberModuleSettings cmdlet imports the RocketCyber BaseURI, API, &amp; JSON configuration information stored in the RocketCyber configuration file to the users current session.</maml:para>
+      <maml:para>By default the configuration file is stored in the following location:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Import-RCModuleSettings</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Import-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Validates that the configuration file created with the Export-RocketCyberModuleSettings cmdlet exists then imports the stored data into the current users session.</maml:para>
+          <maml:para>The default location of the RocketCyber configuration file is:     $env:USERPROFILE\RocketCyberAPI\config.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Import-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -RocketCyberConfFile MyConfig.psd1</dev:code>
+        <dev:remarks>
+          <maml:para>Validates that the configuration file created with the Export-RocketCyberModuleSettings cmdlet exists then imports the stored data into the current users session.</maml:para>
+          <maml:para>The location of the RocketCyber configuration file in this example is:     C:\RocketCyberAPI\MyConfig.psd1</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Import-RCModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Import-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Import-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Invoke-RCRequest</command:name>
+      <command:verb>Invoke</command:verb>
+      <command:noun>RCRequest</command:noun>
+      <maml:description>
+        <maml:para>Makes an API request</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Invoke-RocketCyberRequest cmdlet invokes an API request to RocketCyber API.</maml:para>
+      <maml:para>This is an internal function that is used by all public functions</maml:para>
+      <maml:para>As of 2023-08 the RocketCyber v1 API only supports GET requests</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Invoke-RCRequest</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Invoke-RocketCyberRequest -method GET -resource_Uri '/account' -uri_Filter $uri_Filter</dev:code>
+        <dev:remarks>
+          <maml:para>Invoke a rest method against the defined resource using any of the provided parameters</maml:para>
+          <maml:para>Example:     Name                           Value     ----                           -----     Method                         GET     Uri                            https://api-us.rocketcyber.com/v3/account?accountId=12345&amp;details=True     Headers                        {Authorization = Bearer 123456789}     Body</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Invoke-RCRequest.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-RocketCyberRequest.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-RocketCyberRequest.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RCAPIKey</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RCAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Removes the RocketCyber API bearer token global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RocketCyberAPIKey cmdlet removes the RocketCyber API bearer token global variable.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RCAPIKey</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Removes the RocketCyber API bearer token global variable.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Remove-RCAPIKey.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RCBaseURI</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RCBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Removes the RocketCyber base URI global variable.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RocketCyberBaseURI cmdlet removes the RocketCyber base URI global variable.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RCBaseURI</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>Removes the RocketCyber base URI global variable.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Remove-RCBaseURI.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Remove-RCModuleSettings</command:name>
+      <command:verb>Remove</command:verb>
+      <command:noun>RCModuleSettings</command:noun>
+      <maml:description>
+        <maml:para>Removes the stored RocketCyber configuration folder.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Remove-RocketCyberModuleSettings cmdlet removes the RocketCyber folder and its files. This cmdlet also has the option to remove sensitive RocketCyber variables as well.</maml:para>
+      <maml:para>By default configuration files are stored in the following location and will be removed:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Remove-RCModuleSettings</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberModuleSettings</dev:code>
+        <dev:remarks>
+          <maml:para>Checks to see if the default configuration folder exists and removes it if it does.</maml:para>
+          <maml:para>The default location of the RocketCyber configuration folder is:     $env:USERPROFILE\RocketCyberAPI</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Remove-RocketCyberModuleSettings -RocketCyberConfPath C:\RocketCyberAPI -AndVariables</dev:code>
+        <dev:remarks>
+          <maml:para>Checks to see if the defined configuration folder exists and removes it if it does. If sensitive RocketCyber variables exist then they are removed as well.</maml:para>
+          <maml:para>The location of the RocketCyber configuration folder in this example is:     C:\RocketCyberAPI</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Remove-RCModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberModuleSettings.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Remove-RocketCyberModuleSettings.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-RCAPIKey</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>RCAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Sets your API bearer token used to authenticate all API calls.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberAPIKey cmdlet sets your API bearer token which is used to authenticate all API calls made to RocketCyber. Once the API bearer token is defined, it is encrypted using SecureString.</maml:para>
+      <maml:para>The RocketCyber API bearer tokens are generated via the RocketCyber web interface at Provider Settings &gt; RocketCyber API</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-RCAPIKey</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Prompts to enter in the API bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey -Api_key 'your_api_key'</dev:code>
+        <dev:remarks>
+          <maml:para>The RocketCyber API will use the string entered into the [ -Api_Key ] parameter.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>'12345' | Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>The Add-RocketCyberAPIKey function will use the string passed into it as its API bearer token.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Set-RCAPIKey.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-RCBaseURI</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>RCBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Sets the base URI for the RocketCyber API connection.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberBaseURI cmdlet sets the base URI which is later used to construct the full URI for all API calls.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-RCBaseURI</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-us.rocketcyber.com/v3 which is RocketCyber's default URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -data_center EU</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-eu.rocketcyber.com/v3 which is RocketCyber's Europe URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -base_uri http://myapi.gateway.example.com</dev:code>
+        <dev:remarks>
+          <maml:para>A custom API gateway of http://myapi.gateway.example.com will be used for all API calls to RocketCyber's API.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Set-RCBaseURI.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-RocketCyberAPIKey</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>RocketCyberAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Sets your API bearer token used to authenticate all API calls.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberAPIKey cmdlet sets your API bearer token which is used to authenticate all API calls made to RocketCyber. Once the API bearer token is defined, it is encrypted using SecureString.</maml:para>
+      <maml:para>The RocketCyber API bearer tokens are generated via the RocketCyber web interface at Provider Settings &gt; RocketCyber API</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-RocketCyberAPIKey</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>Prompts to enter in the API bearer token</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberAPIKey -Api_key 'your_api_key'</dev:code>
+        <dev:remarks>
+          <maml:para>The RocketCyber API will use the string entered into the [ -Api_Key ] parameter.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>'12345' | Add-RocketCyberAPIKey</dev:code>
+        <dev:remarks>
+          <maml:para>The Add-RocketCyberAPIKey function will use the string passed into it as its API bearer token.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Set-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Set-RocketCyberBaseURI</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>RocketCyberBaseURI</command:noun>
+      <maml:description>
+        <maml:para>Sets the base URI for the RocketCyber API connection.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Add-RocketCyberBaseURI cmdlet sets the base URI which is later used to construct the full URI for all API calls.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-RocketCyberBaseURI</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-us.rocketcyber.com/v3 which is RocketCyber's default URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -data_center EU</dev:code>
+        <dev:remarks>
+          <maml:para>The base URI will use https://api-eu.rocketcyber.com/v3 which is RocketCyber's Europe URI.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>Add-RocketCyberBaseURI -base_uri http://myapi.gateway.example.com</dev:code>
+        <dev:remarks>
+          <maml:para>A custom API gateway of http://myapi.gateway.example.com will be used for all API calls to RocketCyber's API.</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Set-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Add-RocketCyberBaseURI.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Test-RCAPIKey</command:name>
+      <command:verb>Test</command:verb>
+      <command:noun>RCAPIKey</command:noun>
+      <maml:description>
+        <maml:para>Test the RocketCyber API bearer token.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Test-RocketCyberAPIKey cmdlet tests the base URI &amp; API bearer token that was defined in the Add-RocketCyberBaseURI &amp; Add-RocketCyberAPIKey cmdlets.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Test-RCAPIKey</maml:name>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters />
+    <command:inputTypes />
+    <command:returnValues />
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para>N\A</maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>Test-RocketCyberBaseURI -id 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Tests the base URI &amp; API bearer token that was defined in the Add-RocketCyberBaseURI &amp; Add-RocketCyberAPIKey cmdlets.</maml:para>
+          <maml:para>The default full base uri test path is:     https://api-us.rocketcyber.com/v2/account/id</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>Test-RocketCyberBaseURI -base_uri http://myapi.gateway.example.com -id 12345</dev:code>
+        <dev:remarks>
+          <maml:para>Tests the base URI &amp; API bearer token that was defined in the Add-RocketCyberBaseURI &amp; Add-RocketCyberAPIKey cmdlets.</maml:para>
+          <maml:para>The full base uri test path in this example is:     http://myapi.gateway.example.com/id</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Test-RCAPIKey.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Test-RocketCyberAPIKey.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Test-RocketCyberAPIKey.html</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
+      <command:name>Get-RocketCyberAccounts</command:name>
+      <command:verb>Get</command:verb>
+      <command:noun>RocketCyberAccounts</command:noun>
+      <maml:description>
+        <maml:para>Gets account information for a given ID.</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>The Get-RocketCyberAccount cmdlet gets account information all accounts or for a given ID from the RocketCyber API.</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberAccounts</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
           <maml:name>accountId</maml:name>
           <maml:description>
@@ -100,6 +1465,10 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccounts.html</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
         <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html</maml:linkText>
         <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Account/Get-RocketCyberAccount.html</maml:uri>
       </maml:navigationLink>
@@ -179,7 +1548,7 @@
             <maml:para>The date range for when agents were created</maml:para>
             <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
             <maml:para>Cannot be used with the startDate &amp; endDate parameters</maml:para>
-            <maml:para>Start UTC Time  |  End UTC Time</maml:para>
+            <maml:para>Start UTC Time | End UTC Time</maml:para>
             <maml:para>Example:     2022-05-09T00:33:38.245Z|2022-05-10T23:59:38.245Z     2022-05-09T00:33:38.245Z|                             |2022-05-10T23:59:38.245Z</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -243,7 +1612,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>pageSize</maml:name>
@@ -256,7 +1625,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1000</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>sort</maml:name>
@@ -425,7 +1794,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>pageSize</maml:name>
@@ -438,7 +1807,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1000</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>sort</maml:name>
@@ -527,7 +1896,7 @@
           <maml:para>The date range for when agents were created</maml:para>
           <maml:para>Both the start and end dates are optional, but at least one is required to use this parameter.</maml:para>
           <maml:para>Cannot be used with the startDate &amp; endDate parameters</maml:para>
-          <maml:para>Start UTC Time  |  End UTC Time</maml:para>
+          <maml:para>Start UTC Time | End UTC Time</maml:para>
           <maml:para>Example:     2022-05-09T00:33:38.245Z|2022-05-10T23:59:38.245Z     2022-05-09T00:33:38.245Z|                             |2022-05-10T23:59:38.245Z</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -623,7 +1992,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>pageSize</maml:name>
@@ -636,7 +2005,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1000</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>sort</maml:name>
@@ -831,7 +2200,7 @@
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Get-RocketCyberApps cmdlet gets an accounts defender information from the RocketCyber API.</maml:para>
+      <maml:para>The Get-RocketCyberDefender cmdlet gets an accounts defender information from the RocketCyber API.</maml:para>
       <maml:para>This includes various health &amp; risk values</maml:para>
     </maml:description>
     <command:syntax>
@@ -877,14 +2246,14 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Get-RocketCyberApps</dev:code>
+        <dev:code>Get-RocketCyberDefender</dev:code>
         <dev:remarks>
           <maml:para>Gets defender information all accounts accessible by the bearer token</maml:para>
         </dev:remarks>
       </command:example>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
-        <dev:code>Get-RocketCyberApps -accountId 12345</dev:code>
+        <dev:code>Get-RocketCyberDefender -accountId 12345</dev:code>
         <dev:remarks>
           <maml:para>Gets defender information from account 12345</maml:para>
         </dev:remarks>
@@ -996,7 +2365,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>pageSize</maml:name>
@@ -1009,7 +2378,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1000</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>sort</maml:name>
@@ -1029,6 +2398,34 @@
           <maml:name>allPages</maml:name>
           <maml:description>
             <maml:para>Returns all items from an endpoint</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+      <command:syntaxItem>
+        <maml:name>Get-RocketCyberEvents</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>accountId</maml:name>
+          <maml:description>
+            <maml:para>The account id associated to the device</maml:para>
+            <maml:para>If not provided, data will be pulled for all accounts accessible by the bearer token.</maml:para>
+            <maml:para>Multiple comma separated values can be inputted</maml:para>
+          </maml:description>
+          <command:parameterValue required="true" variableLength="false">Int64[]</command:parameterValue>
+          <dev:type>
+            <maml:name>Int64[]</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>eventSummary</maml:name>
+          <maml:description>
+            <maml:para>Shows summary of events for each app</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
@@ -1079,6 +2476,18 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>eventSummary</maml:name>
+        <maml:description>
+          <maml:para>Shows summary of events for each app</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>details</maml:name>
         <maml:description>
@@ -1122,7 +2531,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>pageSize</maml:name>
@@ -1135,7 +2544,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1000</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>sort</maml:name>
@@ -1169,7 +2578,6 @@
     <maml:alertSet>
       <maml:alert>
         <maml:para>As of 2023-03     Other than the parameters shown here, app specific parameters vary from app to app,     however I have not found any documentation around this.</maml:para>
-        <maml:para>    https://api-doc.rocketcyber.com/#a6f5b2f8-a968-4132-bd7d-1fdc12c7152e</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -1304,7 +2712,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
           <maml:name>pageSize</maml:name>
@@ -1317,7 +2725,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1000</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
           <maml:name>sort</maml:name>
@@ -1332,6 +2740,17 @@
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+          <maml:name>counters</maml:name>
+          <maml:description>
+            <maml:para>Flag to include additional firewall counter data</maml:para>
+          </maml:description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>allPages</maml:name>
@@ -1415,6 +2834,18 @@
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
+        <maml:name>counters</maml:name>
+        <maml:description>
+          <maml:para>Flag to include additional firewall counter data</maml:para>
+        </maml:description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="6" aliases="none">
         <maml:name>page</maml:name>
         <maml:description>
@@ -1427,7 +2858,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="7" aliases="none">
         <maml:name>pageSize</maml:name>
@@ -1440,7 +2871,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1000</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="8" aliases="none">
         <maml:name>sort</maml:name>
@@ -1552,7 +2983,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1000</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="11" aliases="none">
           <maml:name>sort</maml:name>
@@ -1682,7 +3113,7 @@
             <maml:name>Int32</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>1</dev:defaultValue>
+          <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>allPages</maml:name>
@@ -1825,7 +3256,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="10" aliases="none">
         <maml:name>pageSize</maml:name>
@@ -1838,7 +3269,7 @@
           <maml:name>Int32</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>1000</dev:defaultValue>
+        <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="11" aliases="none">
         <maml:name>sort</maml:name>
@@ -2109,20 +3540,20 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>ConvertTo-QueryString</command:name>
+      <command:name>ConvertTo-RocketCyberQueryString</command:name>
       <command:verb>ConvertTo</command:verb>
-      <command:noun>QueryString</command:noun>
+      <command:noun>RocketCyberQueryString</command:noun>
       <maml:description>
         <maml:para>Converts uri filter parameters</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Invoke-ApiRequest cmdlet converts &amp; formats uri filter parameters from a function which are later used to make the full resource uri for an API call</maml:para>
-      <maml:para>This is an internal helper function the ties in directly with the Invoke-ApiRequest &amp; any public functions that define parameters</maml:para>
+      <maml:para>The Invoke-RocketCyberRequest cmdlet converts &amp; formats uri filter parameters from a function which are later used to make the full resource uri for an API call</maml:para>
+      <maml:para>This is an internal helper function the ties in directly with the Invoke-RocketCyberRequest &amp; any public functions that define parameters</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>ConvertTo-QueryString</maml:name>
+        <maml:name>ConvertTo-RocketCyberQueryString</maml:name>
         <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>uri_Filter</maml:name>
           <maml:description>
@@ -2187,7 +3618,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>ConvertTo-QueryString -uri_Filter $uri_Filter -resource_Uri '/account'</dev:code>
+        <dev:code>ConvertTo-RocketCyberQueryString -uri_Filter $uri_Filter -resource_Uri '/account'</dev:code>
         <dev:remarks>
           <maml:para>Example: (From public function)     $uri_Filter = @{}</maml:para>
           <maml:para>    ForEach ( $Key in $PSBoundParameters.GetEnumerator() ){         if( $excludedParameters -contains $Key.Key ){$null}         else{ $uri_Filter += @{ $Key.Key = $Key.Value } }     }</maml:para>
@@ -2197,8 +3628,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-QueryString.html</maml:linkText>
-        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-QueryString.html</maml:uri>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-RocketCyberQueryString.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/ConvertTo-RocketCyberQueryString.html</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -2229,7 +3660,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+          <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RocketCyberConfFile</maml:name>
@@ -2258,7 +3689,7 @@
           <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>RocketCyberConfFile</maml:name>
@@ -2320,7 +3751,7 @@
       <command:syntaxItem>
         <maml:name>Get-RocketCyberAPIKey</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-          <maml:name>PlainText</maml:name>
+          <maml:name>plainText</maml:name>
           <maml:description>
             <maml:para>Decrypt and return the API key in plain text.</maml:para>
           </maml:description>
@@ -2334,7 +3765,7 @@
     </command:syntax>
     <command:parameters>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
-        <maml:name>PlainText</maml:name>
+        <maml:name>plainText</maml:name>
         <maml:description>
           <maml:para>Decrypt and return the API key in plain text.</maml:para>
         </maml:description>
@@ -2444,7 +3875,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+          <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RocketCyberConfFile</maml:name>
@@ -2487,7 +3918,7 @@
           <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>RocketCyberConfFile</maml:name>
@@ -2574,7 +4005,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+          <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>RocketCyberConfFile</maml:name>
@@ -2603,7 +4034,7 @@
           <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>RocketCyberConfFile</maml:name>
@@ -2653,21 +4084,21 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
-      <command:name>Invoke-APIRequest</command:name>
+      <command:name>Invoke-RocketCyberRequest</command:name>
       <command:verb>Invoke</command:verb>
-      <command:noun>APIRequest</command:noun>
+      <command:noun>RocketCyberRequest</command:noun>
       <maml:description>
         <maml:para>Makes an API request</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
-      <maml:para>The Invoke-ApiRequest cmdlet invokes an API request to RocketCyber API.</maml:para>
+      <maml:para>The Invoke-RocketCyberRequest cmdlet invokes an API request to RocketCyber API.</maml:para>
       <maml:para>This is an internal function that is used by all public functions</maml:para>
-      <maml:para>As of 2023-03 the RocketCyber v3 API only supports GET requests</maml:para>
+      <maml:para>As of 2023-08 the RocketCyber v1 API only supports GET requests</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
-        <maml:name>Invoke-APIRequest</maml:name>
+        <maml:name>Invoke-RocketCyberRequest</maml:name>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="1" aliases="none">
           <maml:name>method</maml:name>
           <maml:description>
@@ -2696,9 +4127,9 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
           <maml:name>uri_Filter</maml:name>
           <maml:description>
-            <maml:para>Used with the internal function [ ConvertTo-QueryString ] to combine a functions parameters with the resource_Uri parameter.</maml:para>
+            <maml:para>Used with the internal function [ ConvertTo-RocketCyberQueryString ] to combine a functions parameters with the resource_Uri parameter.</maml:para>
             <maml:para>This allows for the full uri query to occur</maml:para>
-            <maml:para>The full resource path is made with the following data $RocketCyber_Base_URI + $resource_Uri + ConvertTo-QueryString</maml:para>
+            <maml:para>The full resource path is made with the following data $RocketCyber_Base_URI + $resource_Uri + ConvertTo-RocketCyberQueryString</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
           <dev:type>
@@ -2710,7 +4141,7 @@
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
           <maml:name>data</maml:name>
           <maml:description>
-            <maml:para>Place holder parameter to use when other methods are supported by the RocketCyber v3 API</maml:para>
+            <maml:para>Place holder parameter to use when other methods are supported by the RocketCyber v1 API</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
           <dev:type>
@@ -2723,6 +4154,7 @@
           <maml:name>allPages</maml:name>
           <maml:description>
             <maml:para>Returns all items from an endpoint</maml:para>
+            <maml:para>When using this parameter there is no need to use either the page or perPage parameters</maml:para>
           </maml:description>
           <dev:type>
             <maml:name>SwitchParameter</maml:name>
@@ -2761,9 +4193,9 @@
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="3" aliases="none">
         <maml:name>uri_Filter</maml:name>
         <maml:description>
-          <maml:para>Used with the internal function [ ConvertTo-QueryString ] to combine a functions parameters with the resource_Uri parameter.</maml:para>
+          <maml:para>Used with the internal function [ ConvertTo-RocketCyberQueryString ] to combine a functions parameters with the resource_Uri parameter.</maml:para>
           <maml:para>This allows for the full uri query to occur</maml:para>
-          <maml:para>The full resource path is made with the following data $RocketCyber_Base_URI + $resource_Uri + ConvertTo-QueryString</maml:para>
+          <maml:para>The full resource path is made with the following data $RocketCyber_Base_URI + $resource_Uri + ConvertTo-RocketCyberQueryString</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
         <dev:type>
@@ -2775,7 +4207,7 @@
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="4" aliases="none">
         <maml:name>data</maml:name>
         <maml:description>
-          <maml:para>Place holder parameter to use when other methods are supported by the RocketCyber v3 API</maml:para>
+          <maml:para>Place holder parameter to use when other methods are supported by the RocketCyber v1 API</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="false">Hashtable</command:parameterValue>
         <dev:type>
@@ -2788,6 +4220,7 @@
         <maml:name>allPages</maml:name>
         <maml:description>
           <maml:para>Returns all items from an endpoint</maml:para>
+          <maml:para>When using this parameter there is no need to use either the page or perPage parameters</maml:para>
         </maml:description>
         <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
         <dev:type>
@@ -2807,7 +4240,7 @@
     <command:examples>
       <command:example>
         <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
-        <dev:code>Invoke-ApiRequest -method GET -resource_Uri '/account' -uri_Filter $uri_Filter</dev:code>
+        <dev:code>Invoke-RocketCyberRequest -method GET -resource_Uri '/account' -uri_Filter $uri_Filter</dev:code>
         <dev:remarks>
           <maml:para>Invoke a rest method against the defined resource using any of the provided parameters</maml:para>
           <maml:para>Example:     Name                           Value     ----                           -----     Method                         GET     Uri                            https://api-us.rocketcyber.com/v3/account?accountId=12345&amp;details=True     Headers                        {Authorization = Bearer 123456789}     Body</maml:para>
@@ -2816,8 +4249,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-APIRequest.html</maml:linkText>
-        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-APIRequest.html</maml:uri>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-RocketCyberRequest.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Internal/Invoke-RocketCyberRequest.html</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -3024,7 +4457,7 @@
             <maml:name>String</maml:name>
             <maml:uri />
           </dev:type>
-          <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+          <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
           <maml:name>AndVariables</maml:name>
@@ -3074,7 +4507,7 @@
           <maml:name>String</maml:name>
           <maml:uri />
         </dev:type>
-        <dev:defaultValue>"$($env:USERPROFILE)\RocketCyberAPI"</dev:defaultValue>
+        <dev:defaultValue>$(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="False" position="named" aliases="none">
         <maml:name>AndVariables</maml:name>
@@ -3238,7 +4671,7 @@
     <command:syntax>
       <command:syntaxItem>
         <maml:name>Get-RocketCyberOffice</maml:name>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
           <maml:name>accountId</maml:name>
           <maml:description>
             <maml:para>The account ID to pull data for.</maml:para>
@@ -3254,7 +4687,7 @@
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="named" aliases="none">
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByValue)" position="1" aliases="none">
         <maml:name>accountId</maml:name>
         <maml:description>
           <maml:para>The account ID to pull data for.</maml:para>

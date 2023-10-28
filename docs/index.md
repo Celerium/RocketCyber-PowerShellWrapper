@@ -93,16 +93,16 @@ Calling an API resource is as simple as running `Get-RocketCyber<resourceName>`
 * The following is a table of supported functions and their corresponding API resources:
 * Table entries with [ `-` ] indicate that the functionality is NOT supported by the RocketCyber API at this time.
 
-| API Resource       | Create    | Read                             | Update    | Delete    |
-| -----------------  | --------- | -------------------------------- | --------- | --------- |
-| Account            | -         | `Get-RocketCyberAccount`         | -         | -         |
-| Agents             | -         | `Get-RocketCyberAgents`          | -         | -         |
-| Apps               | -         | `Get-RocketCyberApps`            | -         | -         |
-| Defender           | -         | `Get-RocketCyberDefender`        | -         | -         |
-| Events             | -         | `Get-RocketCyberEvents`          | -         | -         |
-| Firewalls          | -         | `Get-RocketCyberFirewalls`       | -         | -         |
-| Incidents          | -         | `Get-RocketCyberIncidents`       | -         | -         |
-| Office             | -         | `Get-RocketCyberOffice`          | -         | -         |
+| API Resource       | Create    | Read                              | Update    | Delete    |
+| -----------------  | --------- | --------------------------------- | --------- | --------- |
+| Account            | -         | `Get-RocketCyberAccounts`         | -         | -         |
+| Agents             | -         | `Get-RocketCyberAgents`           | -         | -         |
+| Apps               | -         | `Get-RocketCyberApps`             | -         | -         |
+| Defender           | -         | `Get-RocketCyberDefender`         | -         | -         |
+| Events             | -         | `Get-RocketCyberEvents`           | -         | -         |
+| Firewalls          | -         | `Get-RocketCyberFirewalls`        | -         | -         |
+| Incidents          | -         | `Get-RocketCyberIncidents`        | -         | -         |
+| Office             | -         | `Get-RocketCyberOffice`           | -         | -         |
 
 Each `Get-RocketCyber*` function will respond with the raw data that RocketCyber's API provides. Returned data is not structured the same and varies between commands
 

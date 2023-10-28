@@ -65,7 +65,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: "$($env:USERPROFILE)\RocketCyberAPI"
+Default value: $(Join-Path -Path $home -ChildPath $(if ($IsWindows -or $PSEdition -eq 'Desktop'){"RocketCyberAPI"}else{".RocketCyberAPI"}) )
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
