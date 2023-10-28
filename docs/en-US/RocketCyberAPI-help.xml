@@ -276,8 +276,8 @@
         <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/_Unique/Get-RCAccounts.html</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
-        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccount.html</maml:linkText>
-        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccount.html</maml:uri>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccounts.html</maml:linkText>
+        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccounts.html</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -1465,12 +1465,8 @@
     </command:examples>
     <command:relatedLinks>
       <maml:navigationLink>
-        <maml:linkText>Online Version:</maml:linkText>
+        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccounts.html</maml:linkText>
         <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccounts.html</maml:uri>
-      </maml:navigationLink>
-      <maml:navigationLink>
-        <maml:linkText>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccount.html</maml:linkText>
-        <maml:uri>https://celerium.github.io/RocketCyber-PowerShellWrapper/site/Accounts/Get-RocketCyberAccount.html</maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
