@@ -1,3 +1,7 @@
+**Attention: This module has been migrated to the [Celerium.RocketCyber](https://github.com/Celerium/Celerium.RocketCyber) module as of 2025-03-09.**
+
+
+
 <h1 align="center">
   <br>
   <a href="http://Celerium.org"><img src="https://raw.githubusercontent.com/Celerium/RocketCyber-PowerShellWrapper/main/.github/images/Celerium_PoSHGallery_RocketCyberAPI.png" alt="_CeleriumDemo" width="200"></a>
